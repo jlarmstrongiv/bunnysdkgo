@@ -34,4 +34,4 @@ use .
 - `GIT_TERMINAL_PROMPT=1 GOPROXY=proxy.golang.org go list -m github.com/jlarmstrongiv/bunnysdkgo@v0.0.1`
 <!-- update website https://stackoverflow.com/a/61974058 -->
 - `curl https://sum.golang.org/lookup/github.com/jlarmstrongiv/bunnysdkgo@v0.0.1`
-- Request an update at `https://pkg.go.dev/github.com/jlarmstrongiv/bunnysdkgo@v0.0.1`
+- `curl -X POST https://pkg.go.dev/fetch/github.com/jlarmstrongiv/bunnysdkgo@v0.0.1` or request an update at `https://pkg.go.dev/github.com/jlarmstrongiv/bunnysdkgo@v0.0.1`
