@@ -43,23 +43,20 @@ func NewVideolibraryRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee2
     return NewVideolibraryRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Get [ListVideoLibraries API Docs](https://docs.bunny.net/reference/videolibrarypublic_index)
-// returns a []VideoLibraryable when successful
-func (m *VideolibraryRequestBuilder) Get(ctx context.Context, requestConfiguration *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestConfiguration[VideolibraryRequestBuilderGetQueryParameters])([]i167cb721c7b76d242a2835c4f90136b859d773a18e97cc59cc6cfc3334a4364b.VideoLibraryable, error) {
+// returns a VideolibraryGetResponseable when successful
+func (m *VideolibraryRequestBuilder) Get(ctx context.Context, requestConfiguration *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestConfiguration[VideolibraryRequestBuilderGetQueryParameters])(VideolibraryGetResponseable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
     }
-    res, err := m.BaseRequestBuilder.RequestAdapter.SendCollection(ctx, requestInfo, i167cb721c7b76d242a2835c4f90136b859d773a18e97cc59cc6cfc3334a4364b.CreateVideoLibraryFromDiscriminatorValue, nil)
+    res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, CreateVideolibraryGetResponseFromDiscriminatorValue, nil)
     if err != nil {
         return nil, err
     }
-    val := make([]i167cb721c7b76d242a2835c4f90136b859d773a18e97cc59cc6cfc3334a4364b.VideoLibraryable, len(res))
-    for i, v := range res {
-        if v != nil {
-            val[i] = v.(i167cb721c7b76d242a2835c4f90136b859d773a18e97cc59cc6cfc3334a4364b.VideoLibraryable)
-        }
+    if res == nil {
+        return nil, nil
     }
-    return val, nil
+    return res.(VideolibraryGetResponseable), nil
 }
 // Languages the languages property
 // returns a *LanguagesRequestBuilder when successful

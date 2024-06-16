@@ -1,4 +1,4 @@
-# [`bunny-sdk`](https://bunny-launcher.com/bunny-sdk/go)
+# bunny-sdk
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/jlarmstrongiv/bunnysdkgo.svg)](https://pkg.go.dev/github.com/jlarmstrongiv/bunnysdkgo)
 

@@ -1,6 +1,6 @@
 module github.com/jlarmstrongiv/bunnysdkgo
 
-go 1.22.4
+go 1.18
 
 require (
 	github.com/microsoft/kiota-abstractions-go v1.6.0

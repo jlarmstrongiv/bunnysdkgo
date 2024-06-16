@@ -47,23 +47,20 @@ func NewStoragezoneRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee26
     return NewStoragezoneRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Get [ListStorageZones API Docs](https://docs.bunny.net/reference/storagezonepublic_index)
-// returns a []StorageZoneable when successful
-func (m *StoragezoneRequestBuilder) Get(ctx context.Context, requestConfiguration *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestConfiguration[StoragezoneRequestBuilderGetQueryParameters])([]i6e286ba4efe217dd2b9036726264aa0551ed098ea36182223475a366531acd7b.StorageZoneable, error) {
+// returns a StoragezoneGetResponseable when successful
+func (m *StoragezoneRequestBuilder) Get(ctx context.Context, requestConfiguration *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestConfiguration[StoragezoneRequestBuilderGetQueryParameters])(StoragezoneGetResponseable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
     }
-    res, err := m.BaseRequestBuilder.RequestAdapter.SendCollection(ctx, requestInfo, i6e286ba4efe217dd2b9036726264aa0551ed098ea36182223475a366531acd7b.CreateStorageZoneFromDiscriminatorValue, nil)
+    res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, CreateStoragezoneGetResponseFromDiscriminatorValue, nil)
     if err != nil {
         return nil, err
     }
-    val := make([]i6e286ba4efe217dd2b9036726264aa0551ed098ea36182223475a366531acd7b.StorageZoneable, len(res))
-    for i, v := range res {
-        if v != nil {
-            val[i] = v.(i6e286ba4efe217dd2b9036726264aa0551ed098ea36182223475a366531acd7b.StorageZoneable)
-        }
+    if res == nil {
+        return nil, nil
     }
-    return val, nil
+    return res.(StoragezoneGetResponseable), nil
 }
 // Post [AddStorageZone API Docs](https://docs.bunny.net/reference/storagezonepublic_add)
 // returns a StorageZoneable when successful

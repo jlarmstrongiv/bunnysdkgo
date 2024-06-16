@@ -49,23 +49,20 @@ func NewPullzoneRequestBuilder(rawUrl string, requestAdapter i2ae4187f7daee26337
     return NewPullzoneRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Get [ListPullZones API Docs](https://docs.bunny.net/reference/pullzonepublic_index)
-// returns a []PullZoneable when successful
-func (m *PullzoneRequestBuilder) Get(ctx context.Context, requestConfiguration *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestConfiguration[PullzoneRequestBuilderGetQueryParameters])([]id1f978eb657ca81d9e4d7cee675850f471201dd71ed8d22f02520011358b9428.PullZoneable, error) {
+// returns a PullzoneGetResponseable when successful
+func (m *PullzoneRequestBuilder) Get(ctx context.Context, requestConfiguration *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestConfiguration[PullzoneRequestBuilderGetQueryParameters])(PullzoneGetResponseable, error) {
     requestInfo, err := m.ToGetRequestInformation(ctx, requestConfiguration);
     if err != nil {
         return nil, err
     }
-    res, err := m.BaseRequestBuilder.RequestAdapter.SendCollection(ctx, requestInfo, id1f978eb657ca81d9e4d7cee675850f471201dd71ed8d22f02520011358b9428.CreatePullZoneFromDiscriminatorValue, nil)
+    res, err := m.BaseRequestBuilder.RequestAdapter.Send(ctx, requestInfo, CreatePullzoneGetResponseFromDiscriminatorValue, nil)
     if err != nil {
         return nil, err
     }
-    val := make([]id1f978eb657ca81d9e4d7cee675850f471201dd71ed8d22f02520011358b9428.PullZoneable, len(res))
-    for i, v := range res {
-        if v != nil {
-            val[i] = v.(id1f978eb657ca81d9e4d7cee675850f471201dd71ed8d22f02520011358b9428.PullZoneable)
-        }
+    if res == nil {
+        return nil, nil
     }
-    return val, nil
+    return res.(PullzoneGetResponseable), nil
 }
 // LoadFreeCertificate the loadFreeCertificate property
 // returns a *LoadfreecertificateLoadFreeCertificateRequestBuilder when successful
