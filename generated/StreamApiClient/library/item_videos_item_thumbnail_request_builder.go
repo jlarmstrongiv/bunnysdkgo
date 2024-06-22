@@ -17,7 +17,7 @@ type ItemVideosItemThumbnailRequestBuilderPostQueryParameters struct {
 // NewItemVideosItemThumbnailRequestBuilderInternal instantiates a new ItemVideosItemThumbnailRequestBuilder and sets the default values.
 func NewItemVideosItemThumbnailRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemVideosItemThumbnailRequestBuilder) {
     m := &ItemVideosItemThumbnailRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/library/{libraryId}/videos/{videoId}/thumbnail?thumbnailUrl={thumbnailUrl}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/library/{libraryId}/videos/{videoId}/thumbnail{?thumbnailUrl*}", pathParameters),
     }
     return m
 }
@@ -29,8 +29,8 @@ func NewItemVideosItemThumbnailRequestBuilder(rawUrl string, requestAdapter i2ae
 }
 // Post [SetThumbnail API Docs](https://docs.bunny.net/reference/video_setthumbnail)
 // returns a StructuredSuccessResponseable when successful
-func (m *ItemVideosItemThumbnailRequestBuilder) Post(ctx context.Context, requestConfiguration *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestConfiguration[ItemVideosItemThumbnailRequestBuilderPostQueryParameters])(i0f867483f96730fd3d555a0e352c1b9b90b87576742fa49c0628b6a32b4744b0.StructuredSuccessResponseable, error) {
-    requestInfo, err := m.ToPostRequestInformation(ctx, requestConfiguration);
+func (m *ItemVideosItemThumbnailRequestBuilder) Post(ctx context.Context, body []byte, requestConfiguration *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestConfiguration[ItemVideosItemThumbnailRequestBuilderPostQueryParameters])(i0f867483f96730fd3d555a0e352c1b9b90b87576742fa49c0628b6a32b4744b0.StructuredSuccessResponseable, error) {
+    requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
     }
@@ -45,10 +45,11 @@ func (m *ItemVideosItemThumbnailRequestBuilder) Post(ctx context.Context, reques
 }
 // ToPostRequestInformation [SetThumbnail API Docs](https://docs.bunny.net/reference/video_setthumbnail)
 // returns a *RequestInformation when successful
-func (m *ItemVideosItemThumbnailRequestBuilder) ToPostRequestInformation(ctx context.Context, requestConfiguration *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestConfiguration[ItemVideosItemThumbnailRequestBuilderPostQueryParameters])(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *ItemVideosItemThumbnailRequestBuilder) ToPostRequestInformation(ctx context.Context, body []byte, requestConfiguration *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestConfiguration[ItemVideosItemThumbnailRequestBuilderPostQueryParameters])(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ConfigureRequestInformation(requestInfo, requestConfiguration)
     requestInfo.Headers.TryAdd("Accept", "application/json")
+    requestInfo.SetStreamContentAndContentType(body, "image/*")
     return requestInfo, nil
 }
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.

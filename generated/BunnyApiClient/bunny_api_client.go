@@ -11,7 +11,10 @@ import (
     i31ea103523785195ff7cea7205ad60a0aadf7641269c0056ff04d331f8976cf4 "github.com/jlarmstrongiv/bunnysdkgo/generated/BunnyApiClient/purge"
     i32b355669d18f965138de477ded4131f3602c682ab0dcb423e6ec0832b242a8c "github.com/jlarmstrongiv/bunnysdkgo/generated/BunnyApiClient/country"
     i6131c283059b4973b08024e7be5299e9e28fcc621f4a5cf5c306e5b52f68bf67 "github.com/jlarmstrongiv/bunnysdkgo/generated/BunnyApiClient/storagezone"
+    i6bf719e1f947108012194b0fa0a21cca4ae7de7e5f1ce356eb579c3eeb63a8ee "github.com/jlarmstrongiv/bunnysdkgo/generated/BunnyApiClient/dmca"
+    i72e6b03fc1984ddf8d6b5c00fcf749038ea01c2c689ddda3cebaae5c86824bbb "github.com/jlarmstrongiv/bunnysdkgo/generated/BunnyApiClient/compute"
     i74f20880decc524690347664e09c6120f5d8ff9f64c299f08187028cadd0d49c "github.com/jlarmstrongiv/bunnysdkgo/generated/BunnyApiClient/pullzone"
+    i7f4a9e9c8f86c84afd8f8e763f65e07b8f857204b9d122fdc53ac40935b81e27 "github.com/jlarmstrongiv/bunnysdkgo/generated/BunnyApiClient/abusecase"
     i8a533905c46408a21c48e531f41356f7d5b752948c444158dc6a1ddce1d79647 "github.com/jlarmstrongiv/bunnysdkgo/generated/BunnyApiClient/dnszone"
     i96b07f03c5b073d657e19f2450b1bc53573fa164ef0e8288a407d040878b342d "github.com/jlarmstrongiv/bunnysdkgo/generated/BunnyApiClient/apikey"
     i9d28d0dfcdedaea0ea5f812f608852879ad972242cd7d2323c4a5f07d4f09b79 "github.com/jlarmstrongiv/bunnysdkgo/generated/BunnyApiClient/videolibrary"
@@ -22,10 +25,20 @@ import (
 type BunnyApiClient struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
+// Abusecase the abusecase property
+// returns a *AbusecaseRequestBuilder when successful
+func (m *BunnyApiClient) Abusecase()(*i7f4a9e9c8f86c84afd8f8e763f65e07b8f857204b9d122fdc53ac40935b81e27.AbusecaseRequestBuilder) {
+    return i7f4a9e9c8f86c84afd8f8e763f65e07b8f857204b9d122fdc53ac40935b81e27.NewAbusecaseRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
 // Apikey the apikey property
 // returns a *ApikeyRequestBuilder when successful
 func (m *BunnyApiClient) Apikey()(*i96b07f03c5b073d657e19f2450b1bc53573fa164ef0e8288a407d040878b342d.ApikeyRequestBuilder) {
     return i96b07f03c5b073d657e19f2450b1bc53573fa164ef0e8288a407d040878b342d.NewApikeyRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
+// Compute the compute property
+// returns a *ComputeRequestBuilder when successful
+func (m *BunnyApiClient) Compute()(*i72e6b03fc1984ddf8d6b5c00fcf749038ea01c2c689ddda3cebaae5c86824bbb.ComputeRequestBuilder) {
+    return i72e6b03fc1984ddf8d6b5c00fcf749038ea01c2c689ddda3cebaae5c86824bbb.NewComputeRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // NewBunnyApiClient instantiates a new BunnyApiClient and sets the default values.
 func NewBunnyApiClient(requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*BunnyApiClient) {
@@ -49,6 +62,11 @@ func NewBunnyApiClient(requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa
 // returns a *CountryRequestBuilder when successful
 func (m *BunnyApiClient) Country()(*i32b355669d18f965138de477ded4131f3602c682ab0dcb423e6ec0832b242a8c.CountryRequestBuilder) {
     return i32b355669d18f965138de477ded4131f3602c682ab0dcb423e6ec0832b242a8c.NewCountryRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
+// Dmca the dmca property
+// returns a *DmcaRequestBuilder when successful
+func (m *BunnyApiClient) Dmca()(*i6bf719e1f947108012194b0fa0a21cca4ae7de7e5f1ce356eb579c3eeb63a8ee.DmcaRequestBuilder) {
+    return i6bf719e1f947108012194b0fa0a21cca4ae7de7e5f1ce356eb579c3eeb63a8ee.NewDmcaRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Dnszone the dnszone property
 // returns a *DnszoneRequestBuilder when successful

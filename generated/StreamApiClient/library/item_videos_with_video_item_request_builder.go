@@ -93,8 +93,8 @@ func (m *ItemVideosWithVideoItemRequestBuilder) Post(ctx context.Context, body i
 }
 // Put [UploadVideo API Docs](https://docs.bunny.net/reference/video_uploadvideo)
 // returns a StructuredSuccessResponseable when successful
-func (m *ItemVideosWithVideoItemRequestBuilder) Put(ctx context.Context, requestConfiguration *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestConfiguration[ItemVideosWithVideoItemRequestBuilderPutQueryParameters])(i0f867483f96730fd3d555a0e352c1b9b90b87576742fa49c0628b6a32b4744b0.StructuredSuccessResponseable, error) {
-    requestInfo, err := m.ToPutRequestInformation(ctx, requestConfiguration);
+func (m *ItemVideosWithVideoItemRequestBuilder) Put(ctx context.Context, body []byte, requestConfiguration *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestConfiguration[ItemVideosWithVideoItemRequestBuilderPutQueryParameters])(i0f867483f96730fd3d555a0e352c1b9b90b87576742fa49c0628b6a32b4744b0.StructuredSuccessResponseable, error) {
+    requestInfo, err := m.ToPutRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return nil, err
     }
@@ -152,10 +152,11 @@ func (m *ItemVideosWithVideoItemRequestBuilder) ToPostRequestInformation(ctx con
 }
 // ToPutRequestInformation [UploadVideo API Docs](https://docs.bunny.net/reference/video_uploadvideo)
 // returns a *RequestInformation when successful
-func (m *ItemVideosWithVideoItemRequestBuilder) ToPutRequestInformation(ctx context.Context, requestConfiguration *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestConfiguration[ItemVideosWithVideoItemRequestBuilderPutQueryParameters])(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *ItemVideosWithVideoItemRequestBuilder) ToPutRequestInformation(ctx context.Context, body []byte, requestConfiguration *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestConfiguration[ItemVideosWithVideoItemRequestBuilderPutQueryParameters])(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.PUT, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ConfigureRequestInformation(requestInfo, requestConfiguration)
     requestInfo.Headers.TryAdd("Accept", "application/json")
+    requestInfo.SetStreamContentAndContentType(body, "application/octet-stream")
     return requestInfo, nil
 }
 // Transcribe the transcribe property

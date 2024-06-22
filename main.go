@@ -1,61 +1,83 @@
 package bunnysdkgo
 
 import (
-    auth "github.com/microsoft/kiota-abstractions-go/authentication"
-    http "github.com/microsoft/kiota-http-go"
+  auth "github.com/microsoft/kiota-abstractions-go/authentication"
+  http "github.com/microsoft/kiota-http-go"
 
-    bunnyApiClient "github.com/jlarmstrongiv/bunnysdkgo/generated/BunnyApiClient"
-    edgeStorageApiClient "github.com/jlarmstrongiv/bunnysdkgo/generated/EdgeStorageApiClient"
-    streamApiClient "github.com/jlarmstrongiv/bunnysdkgo/generated/StreamApiClient"
+  bunnyApiClient "github.com/jlarmstrongiv/bunnysdkgo/generated/BunnyApiClient"
+  edgeStorageApiClient "github.com/jlarmstrongiv/bunnysdkgo/generated/EdgeStorageApiClient"
+  loggingApiClient "github.com/jlarmstrongiv/bunnysdkgo/generated/LoggingApiClient"
+  streamApiClient "github.com/jlarmstrongiv/bunnysdkgo/generated/StreamApiClient"
 )
 
 type CreateBunnyApiClientParameters struct {
-    AccessKey string
+  AccessKey string
 }
+
 func CreateBunnyApiClient(
-    options *CreateBunnyApiClientParameters,
+  options *CreateBunnyApiClientParameters,
 ) (*bunnyApiClient.BunnyApiClient, error) {
-    authProvider, err := auth.NewApiKeyAuthenticationProvider(options.AccessKey, "AccessKey", auth.HEADER_KEYLOCATION)
-    if err != nil {
-        return nil, err
-    }
-    httpAdapter, err := http.NewNetHttpRequestAdapter(authProvider)
-    if err != nil {
-        return nil, err
-    }
-    return bunnyApiClient.NewBunnyApiClient(httpAdapter), nil
+  authProvider, err := auth.NewApiKeyAuthenticationProvider(options.AccessKey, "AccessKey", auth.HEADER_KEYLOCATION)
+  if err != nil {
+    return nil, err
+  }
+  httpAdapter, err := http.NewNetHttpRequestAdapter(authProvider)
+  if err != nil {
+    return nil, err
+  }
+  return bunnyApiClient.NewBunnyApiClient(httpAdapter), nil
 }
 
 type CreateEdgeStorageApiClientParameters struct {
-    AccessKey string
+  AccessKey string
 }
+
 func CreateEdgeStorageApiClient(
-  	options *CreateEdgeStorageApiClientParameters,
+  options *CreateEdgeStorageApiClientParameters,
 ) (*edgeStorageApiClient.EdgeStorageApiClient, error) {
-    authProvider, err := auth.NewApiKeyAuthenticationProvider(options.AccessKey, "AccessKey", auth.HEADER_KEYLOCATION)
-    if err != nil {
-        return nil, err
-    }
-    httpAdapter, err := http.NewNetHttpRequestAdapter(authProvider)
-    if err != nil {
-        return nil, err
-    }
-    return edgeStorageApiClient.NewEdgeStorageApiClient(httpAdapter), nil
+  authProvider, err := auth.NewApiKeyAuthenticationProvider(options.AccessKey, "AccessKey", auth.HEADER_KEYLOCATION)
+  if err != nil {
+    return nil, err
+  }
+  httpAdapter, err := http.NewNetHttpRequestAdapter(authProvider)
+  if err != nil {
+    return nil, err
+  }
+  return edgeStorageApiClient.NewEdgeStorageApiClient(httpAdapter), nil
 }
 
 type CreateStreamApiClientParameters struct {
-  	AccessKey string
+  AccessKey string
 }
+
 func CreateStreamApiClient(
-  	options *CreateStreamApiClientParameters,
+  options *CreateStreamApiClientParameters,
 ) (*streamApiClient.StreamApiClient, error) {
-    authProvider, err := auth.NewApiKeyAuthenticationProvider(options.AccessKey, "AccessKey", auth.HEADER_KEYLOCATION)
-    if err != nil {
-        return nil, err
-    }
-    httpAdapter, err := http.NewNetHttpRequestAdapter(authProvider)
-    if err != nil {
-        return nil, err
-    }
-    return streamApiClient.NewStreamApiClient(httpAdapter), nil
+  authProvider, err := auth.NewApiKeyAuthenticationProvider(options.AccessKey, "AccessKey", auth.HEADER_KEYLOCATION)
+  if err != nil {
+    return nil, err
+  }
+  httpAdapter, err := http.NewNetHttpRequestAdapter(authProvider)
+  if err != nil {
+    return nil, err
+  }
+  return streamApiClient.NewStreamApiClient(httpAdapter), nil
+}
+
+type CreateLoggingApiClientParameters struct {
+  AccessKey string
+}
+
+func CreateLoggingApiClient(
+  options *CreateStreamApiClientParameters,
+) (*loggingApiClient.LoggingApiClient, error) {
+  authProvider, err := auth.NewApiKeyAuthenticationProvider(options.AccessKey, "AccessKey", auth.HEADER_KEYLOCATION)
+  if err != nil {
+    return nil, err
+  }
+  httpAdapter, err := http.NewNetHttpRequestAdapter(authProvider)
+  if err != nil {
+    return nil, err
+  }
+  return loggingApiClient.NewLoggingApiClient(httpAdapter), nil
 }

@@ -184,6 +184,11 @@ func (m *ItemRequestBuilder) ToPostRequestInformation(ctx context.Context, body 
     }
     return requestInfo, nil
 }
+// Waf the waf property
+// returns a *ItemWafRequestBuilder when successful
+func (m *ItemRequestBuilder) Waf()(*ItemWafRequestBuilder) {
+    return NewItemWafRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
 // WithUrl returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
 // returns a *ItemRequestBuilder when successful
 func (m *ItemRequestBuilder) WithUrl(rawUrl string)(*ItemRequestBuilder) {

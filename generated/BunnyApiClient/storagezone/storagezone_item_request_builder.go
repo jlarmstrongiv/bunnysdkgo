@@ -10,6 +10,11 @@ import (
 type StoragezoneItemRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
+// Connections the connections property
+// returns a *ItemConnectionsRequestBuilder when successful
+func (m *StoragezoneItemRequestBuilder) Connections()(*ItemConnectionsRequestBuilder) {
+    return NewItemConnectionsRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
 // NewStoragezoneItemRequestBuilderInternal instantiates a new StoragezoneItemRequestBuilder and sets the default values.
 func NewStoragezoneItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*StoragezoneItemRequestBuilder) {
     m := &StoragezoneItemRequestBuilder{
