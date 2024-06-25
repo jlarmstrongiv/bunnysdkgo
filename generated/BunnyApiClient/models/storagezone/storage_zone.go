@@ -26,7 +26,7 @@ type StorageZone struct {
     // The Password property
     password *string
     // The PriceOverride property
-    priceOverride *int64
+    priceOverride *float64
     // The PullZones property
     pullZones []id1f978eb657ca81d9e4d7cee675850f471201dd71ed8d22f02520011358b9428.PullZoneable
     // The ReadOnlyPassword property
@@ -170,7 +170,7 @@ func (m *StorageZone) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26
         return nil
     }
     res["PriceOverride"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetInt64Value()
+        val, err := n.GetFloat64Value()
         if err != nil {
             return err
         }
@@ -314,8 +314,8 @@ func (m *StorageZone) GetPassword()(*string) {
     return m.password
 }
 // GetPriceOverride gets the PriceOverride property value. The PriceOverride property
-// returns a *int64 when successful
-func (m *StorageZone) GetPriceOverride()(*int64) {
+// returns a *float64 when successful
+func (m *StorageZone) GetPriceOverride()(*float64) {
     return m.priceOverride
 }
 // GetPullZones gets the PullZones property value. The PullZones property
@@ -452,7 +452,7 @@ func (m *StorageZone) SetPassword(value *string)() {
     m.password = value
 }
 // SetPriceOverride sets the PriceOverride property value. The PriceOverride property
-func (m *StorageZone) SetPriceOverride(value *int64)() {
+func (m *StorageZone) SetPriceOverride(value *float64)() {
     m.priceOverride = value
 }
 // SetPullZones sets the PullZones property value. The PullZones property
@@ -506,7 +506,7 @@ type StorageZoneable interface {
     GetId()(*int64)
     GetName()(*string)
     GetPassword()(*string)
-    GetPriceOverride()(*int64)
+    GetPriceOverride()(*float64)
     GetPullZones()([]id1f978eb657ca81d9e4d7cee675850f471201dd71ed8d22f02520011358b9428.PullZoneable)
     GetReadOnlyPassword()(*string)
     GetRegion()(*StandardRegions)
@@ -525,7 +525,7 @@ type StorageZoneable interface {
     SetId(value *int64)()
     SetName(value *string)()
     SetPassword(value *string)()
-    SetPriceOverride(value *int64)()
+    SetPriceOverride(value *float64)()
     SetPullZones(value []id1f978eb657ca81d9e4d7cee675850f471201dd71ed8d22f02520011358b9428.PullZoneable)()
     SetReadOnlyPassword(value *string)()
     SetRegion(value *StandardRegions)()

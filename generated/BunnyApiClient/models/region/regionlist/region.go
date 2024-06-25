@@ -22,7 +22,7 @@ type Region struct {
     // The Name property
     name *string
     // The PricePerGigabyte property
-    pricePerGigabyte *float32
+    pricePerGigabyte *float64
     // The RegionCode property
     regionCode *string
 }
@@ -133,7 +133,7 @@ func (m *Region) GetFieldDeserializers()(map[string]func(i878a80d2330e89d2689638
         return nil
     }
     res["PricePerGigabyte"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetFloat32Value()
+        val, err := n.GetFloat64Value()
         if err != nil {
             return err
         }
@@ -175,8 +175,8 @@ func (m *Region) GetName()(*string) {
     return m.name
 }
 // GetPricePerGigabyte gets the PricePerGigabyte property value. The PricePerGigabyte property
-// returns a *float32 when successful
-func (m *Region) GetPricePerGigabyte()(*float32) {
+// returns a *float64 when successful
+func (m *Region) GetPricePerGigabyte()(*float64) {
     return m.pricePerGigabyte
 }
 // GetRegionCode gets the RegionCode property value. The RegionCode property
@@ -229,7 +229,7 @@ func (m *Region) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c
         }
     }
     {
-        err := writer.WriteFloat32Value("PricePerGigabyte", m.GetPricePerGigabyte())
+        err := writer.WriteFloat64Value("PricePerGigabyte", m.GetPricePerGigabyte())
         if err != nil {
             return err
         }
@@ -281,7 +281,7 @@ func (m *Region) SetName(value *string)() {
     m.name = value
 }
 // SetPricePerGigabyte sets the PricePerGigabyte property value. The PricePerGigabyte property
-func (m *Region) SetPricePerGigabyte(value *float32)() {
+func (m *Region) SetPricePerGigabyte(value *float64)() {
     m.pricePerGigabyte = value
 }
 // SetRegionCode sets the RegionCode property value. The RegionCode property
@@ -298,7 +298,7 @@ type Regionable interface {
     GetLatitude()(*float64)
     GetLongitude()(*float64)
     GetName()(*string)
-    GetPricePerGigabyte()(*float32)
+    GetPricePerGigabyte()(*float64)
     GetRegionCode()(*string)
     SetAllowLatencyRouting(value *bool)()
     SetContinentCode(value *string)()
@@ -307,6 +307,6 @@ type Regionable interface {
     SetLatitude(value *float64)()
     SetLongitude(value *float64)()
     SetName(value *string)()
-    SetPricePerGigabyte(value *float32)()
+    SetPricePerGigabyte(value *float64)()
     SetRegionCode(value *string)()
 }

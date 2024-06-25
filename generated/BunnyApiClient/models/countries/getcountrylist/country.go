@@ -20,7 +20,7 @@ type Country struct {
     // The TaxPrefix property
     taxPrefix *string
     // The TaxRate property
-    taxRate *int32
+    taxRate *float64
 }
 // NewCountry instantiates a new Country and sets the default values.
 func NewCountry()(*Country) {
@@ -110,7 +110,7 @@ func (m *Country) GetFieldDeserializers()(map[string]func(i878a80d2330e89d268963
         return nil
     }
     res["TaxRate"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetInt32Value()
+        val, err := n.GetFloat64Value()
         if err != nil {
             return err
         }
@@ -152,8 +152,8 @@ func (m *Country) GetTaxPrefix()(*string) {
     return m.taxPrefix
 }
 // GetTaxRate gets the TaxRate property value. The TaxRate property
-// returns a *int32 when successful
-func (m *Country) GetTaxRate()(*int32) {
+// returns a *float64 when successful
+func (m *Country) GetTaxRate()(*float64) {
     return m.taxRate
 }
 // Serialize serializes information the current object
@@ -195,7 +195,7 @@ func (m *Country) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010
         }
     }
     {
-        err := writer.WriteInt32Value("TaxRate", m.GetTaxRate())
+        err := writer.WriteFloat64Value("TaxRate", m.GetTaxRate())
         if err != nil {
             return err
         }
@@ -237,7 +237,7 @@ func (m *Country) SetTaxPrefix(value *string)() {
     m.taxPrefix = value
 }
 // SetTaxRate sets the TaxRate property value. The TaxRate property
-func (m *Country) SetTaxRate(value *int32)() {
+func (m *Country) SetTaxRate(value *float64)() {
     m.taxRate = value
 }
 type Countryable interface {
@@ -249,12 +249,12 @@ type Countryable interface {
     GetName()(*string)
     GetPopList()([]string)
     GetTaxPrefix()(*string)
-    GetTaxRate()(*int32)
+    GetTaxRate()(*float64)
     SetFlagUrl(value *string)()
     SetIsEU(value *bool)()
     SetIsoCode(value *string)()
     SetName(value *string)()
     SetPopList(value []string)()
     SetTaxPrefix(value *string)()
-    SetTaxRate(value *int32)()
+    SetTaxRate(value *float64)()
 }

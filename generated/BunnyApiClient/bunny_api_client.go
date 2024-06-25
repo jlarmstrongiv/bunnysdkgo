@@ -8,6 +8,7 @@ import (
     i7294a22093d408fdca300f11b81a887d89c47b764af06c8b803e2323973fdb83 "github.com/microsoft/kiota-serialization-text-go"
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
     i080edb284a6e4dc39d43af838b755f06daa6809b3fa0362cb2c79c6be24c0158 "github.com/jlarmstrongiv/bunnysdkgo/generated/BunnyApiClient/statistics"
+    i23359abd076f07c11b389fd8b27c7f070b7463960560df9078016ceed5b37238 "github.com/jlarmstrongiv/bunnysdkgo/generated/BunnyApiClient/user"
     i31ea103523785195ff7cea7205ad60a0aadf7641269c0056ff04d331f8976cf4 "github.com/jlarmstrongiv/bunnysdkgo/generated/BunnyApiClient/purge"
     i32b355669d18f965138de477ded4131f3602c682ab0dcb423e6ec0832b242a8c "github.com/jlarmstrongiv/bunnysdkgo/generated/BunnyApiClient/country"
     i6131c283059b4973b08024e7be5299e9e28fcc621f4a5cf5c306e5b52f68bf67 "github.com/jlarmstrongiv/bunnysdkgo/generated/BunnyApiClient/storagezone"
@@ -97,6 +98,11 @@ func (m *BunnyApiClient) Statistics()(*i080edb284a6e4dc39d43af838b755f06daa6809b
 // returns a *StoragezoneRequestBuilder when successful
 func (m *BunnyApiClient) Storagezone()(*i6131c283059b4973b08024e7be5299e9e28fcc621f4a5cf5c306e5b52f68bf67.StoragezoneRequestBuilder) {
     return i6131c283059b4973b08024e7be5299e9e28fcc621f4a5cf5c306e5b52f68bf67.NewStoragezoneRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
+// User the user property
+// returns a *UserRequestBuilder when successful
+func (m *BunnyApiClient) User()(*i23359abd076f07c11b389fd8b27c7f070b7463960560df9078016ceed5b37238.UserRequestBuilder) {
+    return i23359abd076f07c11b389fd8b27c7f070b7463960560df9078016ceed5b37238.NewUserRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Videolibrary the videolibrary property
 // returns a *VideolibraryRequestBuilder when successful

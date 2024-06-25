@@ -144,7 +144,7 @@ type PullZone struct {
     // The amount of data after the rate limit will be activated
     limitRateAfter *float64
     // The maximum rate at which the zone will transfer data in kb/s. 0 for unlimited
-    limitRatePerSecond *int32
+    limitRatePerSecond *float64
     // The LogAnonymizationType property
     logAnonymizationType *float64
     // The LogFormat property
@@ -1381,7 +1381,7 @@ func (m *PullZone) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896
         return nil
     }
     res["LimitRatePerSecond"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetInt32Value()
+        val, err := n.GetFloat64Value()
         if err != nil {
             return err
         }
@@ -2250,8 +2250,8 @@ func (m *PullZone) GetLimitRateAfter()(*float64) {
     return m.limitRateAfter
 }
 // GetLimitRatePerSecond gets the LimitRatePerSecond property value. The maximum rate at which the zone will transfer data in kb/s. 0 for unlimited
-// returns a *int32 when successful
-func (m *PullZone) GetLimitRatePerSecond()(*int32) {
+// returns a *float64 when successful
+func (m *PullZone) GetLimitRatePerSecond()(*float64) {
     return m.limitRatePerSecond
 }
 // GetLogAnonymizationType gets the LogAnonymizationType property value. The LogAnonymizationType property
@@ -3015,7 +3015,7 @@ func (m *PullZone) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c01
         }
     }
     {
-        err := writer.WriteInt32Value("LimitRatePerSecond", m.GetLimitRatePerSecond())
+        err := writer.WriteFloat64Value("LimitRatePerSecond", m.GetLimitRatePerSecond())
         if err != nil {
             return err
         }
@@ -3749,7 +3749,7 @@ func (m *PullZone) SetLimitRateAfter(value *float64)() {
     m.limitRateAfter = value
 }
 // SetLimitRatePerSecond sets the LimitRatePerSecond property value. The maximum rate at which the zone will transfer data in kb/s. 0 for unlimited
-func (m *PullZone) SetLimitRatePerSecond(value *int32)() {
+func (m *PullZone) SetLimitRatePerSecond(value *float64)() {
     m.limitRatePerSecond = value
 }
 // SetLogAnonymizationType sets the LogAnonymizationType property value. The LogAnonymizationType property
@@ -4151,7 +4151,7 @@ type PullZoneable interface {
     GetId()(*int64)
     GetIgnoreQueryStrings()(*bool)
     GetLimitRateAfter()(*float64)
-    GetLimitRatePerSecond()(*int32)
+    GetLimitRatePerSecond()(*float64)
     GetLogAnonymizationType()(*float64)
     GetLogFormat()(*float64)
     GetLogForwardingEnabled()(*bool)
@@ -4302,7 +4302,7 @@ type PullZoneable interface {
     SetId(value *int64)()
     SetIgnoreQueryStrings(value *bool)()
     SetLimitRateAfter(value *float64)()
-    SetLimitRatePerSecond(value *int32)()
+    SetLimitRatePerSecond(value *float64)()
     SetLogAnonymizationType(value *float64)()
     SetLogFormat(value *float64)()
     SetLogForwardingEnabled(value *bool)()
