@@ -4,10 +4,10 @@ import (
   auth "github.com/microsoft/kiota-abstractions-go/authentication"
   http "github.com/microsoft/kiota-http-go"
 
-  bunnyApiClient "github.com/jlarmstrongiv/bunnysdkgo/generated/BunnyApiClient"
-  edgeStorageApiClient "github.com/jlarmstrongiv/bunnysdkgo/generated/EdgeStorageApiClient"
-  loggingApiClient "github.com/jlarmstrongiv/bunnysdkgo/generated/LoggingApiClient"
-  streamApiClient "github.com/jlarmstrongiv/bunnysdkgo/generated/StreamApiClient"
+  bunnyApiClient "github.com/jlarmstrongiv/bunnysdkgo/bunny_api_client"
+  edgeStorageApiClient "github.com/jlarmstrongiv/bunnysdkgo/edge_storage_api_client"
+  loggingApiClient "github.com/jlarmstrongiv/bunnysdkgo/logging_api_client"
+  streamApiClient "github.com/jlarmstrongiv/bunnysdkgo/stream_api_client"
 )
 
 type CreateBunnyApiClientParameters struct {

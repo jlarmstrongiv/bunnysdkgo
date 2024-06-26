@@ -1,11 +1,18 @@
 # Contributing
 
+VS Code extensions
+
+- `golang.go`
+
 Create a `go.work` file with:
 
 ```go.work
 go 1.22.4
 
-replace github.com/jlarmstrongiv/bunnysdkgo/generated => ./bunnysdkgo/generated
+replace github.com/jlarmstrongiv/bunnysdkgo/bunny_api_client => ./bunnysdkgo/bunny_api_client
+replace github.com/jlarmstrongiv/bunnysdkgo/edge_storage_api_client => ./bunnysdkgo/edge_storage_api_client
+replace github.com/jlarmstrongiv/bunnysdkgo/logging_api_client => ./bunnysdkgo/logging_api_client
+replace github.com/jlarmstrongiv/bunnysdkgo/stream_api_client => ./bunnysdkgo/stream_api_client
 
 use .
 ```
