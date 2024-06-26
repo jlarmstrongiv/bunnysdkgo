@@ -30,6 +30,7 @@ func CreateBunnyApiClient(
 
 type CreateEdgeStorageApiClientParameters struct {
   AccessKey string
+  BaseUrl string
 }
 
 func CreateEdgeStorageApiClient(
@@ -43,6 +44,7 @@ func CreateEdgeStorageApiClient(
   if err != nil {
     return nil, err
   }
+  httpAdapter.SetBaseUrl(options.BaseUrl)
   return edgeStorageApiClient.NewEdgeStorageApiClient(httpAdapter), nil
 }
 
