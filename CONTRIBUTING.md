@@ -21,6 +21,7 @@ use .
 <!-- update website https://stackoverflow.com/a/61974058 -->
 <!-- request a manual website update at https://pkg.go.dev/github.com/jlarmstrongiv/bunnysdkgo@v0.0.1 -->
 
+- Update dependencies `go get -u`
 - `go mod tidy`
 - `go build`
 - `git add -A`
