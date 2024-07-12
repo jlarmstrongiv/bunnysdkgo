@@ -16,29 +16,29 @@ type ItemRequestBuilderGetQueryParameters struct {
     IncludeCertificate *bool `uriparametername:"includeCertificate"`
 }
 // AddAllowedReferrer the addAllowedReferrer property
-// returns a *ItemAddallowedreferrerAddAllowedReferrerRequestBuilder when successful
-func (m *ItemRequestBuilder) AddAllowedReferrer()(*ItemAddallowedreferrerAddAllowedReferrerRequestBuilder) {
-    return NewItemAddallowedreferrerAddAllowedReferrerRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+// returns a *ItemAddAllowedReferrerRequestBuilder when successful
+func (m *ItemRequestBuilder) AddAllowedReferrer()(*ItemAddAllowedReferrerRequestBuilder) {
+    return NewItemAddAllowedReferrerRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // AddBlockedIp the addBlockedIp property
-// returns a *ItemAddblockedipAddBlockedIpRequestBuilder when successful
-func (m *ItemRequestBuilder) AddBlockedIp()(*ItemAddblockedipAddBlockedIpRequestBuilder) {
-    return NewItemAddblockedipAddBlockedIpRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+// returns a *ItemAddBlockedIpRequestBuilder when successful
+func (m *ItemRequestBuilder) AddBlockedIp()(*ItemAddBlockedIpRequestBuilder) {
+    return NewItemAddBlockedIpRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // AddBlockedReferrer the addBlockedReferrer property
-// returns a *ItemAddblockedreferrerAddBlockedReferrerRequestBuilder when successful
-func (m *ItemRequestBuilder) AddBlockedReferrer()(*ItemAddblockedreferrerAddBlockedReferrerRequestBuilder) {
-    return NewItemAddblockedreferrerAddBlockedReferrerRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+// returns a *ItemAddBlockedReferrerRequestBuilder when successful
+func (m *ItemRequestBuilder) AddBlockedReferrer()(*ItemAddBlockedReferrerRequestBuilder) {
+    return NewItemAddBlockedReferrerRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // AddCertificate the addCertificate property
-// returns a *ItemAddcertificateAddCertificateRequestBuilder when successful
-func (m *ItemRequestBuilder) AddCertificate()(*ItemAddcertificateAddCertificateRequestBuilder) {
-    return NewItemAddcertificateAddCertificateRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+// returns a *ItemAddCertificateRequestBuilder when successful
+func (m *ItemRequestBuilder) AddCertificate()(*ItemAddCertificateRequestBuilder) {
+    return NewItemAddCertificateRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // AddHostname the addHostname property
-// returns a *ItemAddhostnameAddHostnameRequestBuilder when successful
-func (m *ItemRequestBuilder) AddHostname()(*ItemAddhostnameAddHostnameRequestBuilder) {
-    return NewItemAddhostnameAddHostnameRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+// returns a *ItemAddHostnameRequestBuilder when successful
+func (m *ItemRequestBuilder) AddHostname()(*ItemAddHostnameRequestBuilder) {
+    return NewItemAddHostnameRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // NewItemRequestBuilderInternal instantiates a new ItemRequestBuilder and sets the default values.
 func NewItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemRequestBuilder) {
@@ -113,39 +113,39 @@ func (m *ItemRequestBuilder) Post(ctx context.Context, body i9d3c79fc44359c9b4b5
     return res.(i9d3c79fc44359c9b4b531e313634f16de3ba545b486fa45d121ca75ff09e2fe4.PullZoneable), nil
 }
 // PurgeCache the purgeCache property
-// returns a *ItemPurgecachePurgeCacheRequestBuilder when successful
-func (m *ItemRequestBuilder) PurgeCache()(*ItemPurgecachePurgeCacheRequestBuilder) {
-    return NewItemPurgecachePurgeCacheRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+// returns a *ItemPurgeCacheRequestBuilder when successful
+func (m *ItemRequestBuilder) PurgeCache()(*ItemPurgeCacheRequestBuilder) {
+    return NewItemPurgeCacheRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // RemoveAllowedReferrer the removeAllowedReferrer property
-// returns a *ItemRemoveallowedreferrerRemoveAllowedReferrerRequestBuilder when successful
-func (m *ItemRequestBuilder) RemoveAllowedReferrer()(*ItemRemoveallowedreferrerRemoveAllowedReferrerRequestBuilder) {
-    return NewItemRemoveallowedreferrerRemoveAllowedReferrerRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+// returns a *ItemRemoveAllowedReferrerRequestBuilder when successful
+func (m *ItemRequestBuilder) RemoveAllowedReferrer()(*ItemRemoveAllowedReferrerRequestBuilder) {
+    return NewItemRemoveAllowedReferrerRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // RemoveBlockedIp the removeBlockedIp property
-// returns a *ItemRemoveblockedipRemoveBlockedIpRequestBuilder when successful
-func (m *ItemRequestBuilder) RemoveBlockedIp()(*ItemRemoveblockedipRemoveBlockedIpRequestBuilder) {
-    return NewItemRemoveblockedipRemoveBlockedIpRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+// returns a *ItemRemoveBlockedIpRequestBuilder when successful
+func (m *ItemRequestBuilder) RemoveBlockedIp()(*ItemRemoveBlockedIpRequestBuilder) {
+    return NewItemRemoveBlockedIpRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // RemoveBlockedReferrer the removeBlockedReferrer property
-// returns a *ItemRemoveblockedreferrerRemoveBlockedReferrerRequestBuilder when successful
-func (m *ItemRequestBuilder) RemoveBlockedReferrer()(*ItemRemoveblockedreferrerRemoveBlockedReferrerRequestBuilder) {
-    return NewItemRemoveblockedreferrerRemoveBlockedReferrerRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+// returns a *ItemRemoveBlockedReferrerRequestBuilder when successful
+func (m *ItemRequestBuilder) RemoveBlockedReferrer()(*ItemRemoveBlockedReferrerRequestBuilder) {
+    return NewItemRemoveBlockedReferrerRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // RemoveCertificate the removeCertificate property
-// returns a *ItemRemovecertificateRemoveCertificateRequestBuilder when successful
-func (m *ItemRequestBuilder) RemoveCertificate()(*ItemRemovecertificateRemoveCertificateRequestBuilder) {
-    return NewItemRemovecertificateRemoveCertificateRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+// returns a *ItemRemoveCertificateRequestBuilder when successful
+func (m *ItemRequestBuilder) RemoveCertificate()(*ItemRemoveCertificateRequestBuilder) {
+    return NewItemRemoveCertificateRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // RemoveHostname the removeHostname property
-// returns a *ItemRemovehostnameRemoveHostnameRequestBuilder when successful
-func (m *ItemRequestBuilder) RemoveHostname()(*ItemRemovehostnameRemoveHostnameRequestBuilder) {
-    return NewItemRemovehostnameRemoveHostnameRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+// returns a *ItemRemoveHostnameRequestBuilder when successful
+func (m *ItemRequestBuilder) RemoveHostname()(*ItemRemoveHostnameRequestBuilder) {
+    return NewItemRemoveHostnameRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // ResetSecurityKey the resetSecurityKey property
-// returns a *ItemResetsecuritykeyResetSecurityKeyRequestBuilder when successful
-func (m *ItemRequestBuilder) ResetSecurityKey()(*ItemResetsecuritykeyResetSecurityKeyRequestBuilder) {
-    return NewItemResetsecuritykeyResetSecurityKeyRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+// returns a *ItemResetSecurityKeyRequestBuilder when successful
+func (m *ItemRequestBuilder) ResetSecurityKey()(*ItemResetSecurityKeyRequestBuilder) {
+    return NewItemResetSecurityKeyRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Safehop the safehop property
 // returns a *ItemSafehopRequestBuilder when successful
@@ -153,9 +153,9 @@ func (m *ItemRequestBuilder) Safehop()(*ItemSafehopRequestBuilder) {
     return NewItemSafehopRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // SetForceSSL the setForceSSL property
-// returns a *ItemSetforcesslSetForceSSLRequestBuilder when successful
-func (m *ItemRequestBuilder) SetForceSSL()(*ItemSetforcesslSetForceSSLRequestBuilder) {
-    return NewItemSetforcesslSetForceSSLRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+// returns a *ItemSetForceSSLRequestBuilder when successful
+func (m *ItemRequestBuilder) SetForceSSL()(*ItemSetForceSSLRequestBuilder) {
+    return NewItemSetForceSSLRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // ToDeleteRequestInformation [DeletePullZone API Docs](https://docs.bunny.net/reference/pullzonepublic_delete)
 // returns a *RequestInformation when successful

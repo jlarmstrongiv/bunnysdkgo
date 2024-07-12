@@ -80,9 +80,9 @@ func (m *VideolibraryRequestBuilder) Post(ctx context.Context, body Videolibrary
     return res.(ie59f1fc195391a433ed92a6780c54480efff53cfc74cc731d5a61ccfbf9645d9.VideoLibraryable), nil
 }
 // ResetApiKey the resetApiKey property
-// returns a *ResetapikeyResetApiKeyRequestBuilder when successful
-func (m *VideolibraryRequestBuilder) ResetApiKey()(*ResetapikeyResetApiKeyRequestBuilder) {
-    return NewResetapikeyResetApiKeyRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+// returns a *ResetApiKeyRequestBuilder when successful
+func (m *VideolibraryRequestBuilder) ResetApiKey()(*ResetApiKeyRequestBuilder) {
+    return NewResetApiKeyRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // ToGetRequestInformation [ListVideoLibraries API Docs](https://docs.bunny.net/reference/videolibrarypublic_index)
 // returns a *RequestInformation when successful

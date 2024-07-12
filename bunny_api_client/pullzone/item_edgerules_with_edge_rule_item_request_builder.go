@@ -35,9 +35,9 @@ func (m *ItemEdgerulesWithEdgeRuleItemRequestBuilder) Delete(ctx context.Context
     return nil
 }
 // SetEdgeRuleEnabled the setEdgeRuleEnabled property
-// returns a *ItemEdgerulesItemSetedgeruleenabledSetEdgeRuleEnabledRequestBuilder when successful
-func (m *ItemEdgerulesWithEdgeRuleItemRequestBuilder) SetEdgeRuleEnabled()(*ItemEdgerulesItemSetedgeruleenabledSetEdgeRuleEnabledRequestBuilder) {
-    return NewItemEdgerulesItemSetedgeruleenabledSetEdgeRuleEnabledRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+// returns a *ItemEdgerulesItemSetEdgeRuleEnabledRequestBuilder when successful
+func (m *ItemEdgerulesWithEdgeRuleItemRequestBuilder) SetEdgeRuleEnabled()(*ItemEdgerulesItemSetEdgeRuleEnabledRequestBuilder) {
+    return NewItemEdgerulesItemSetEdgeRuleEnabledRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // ToDeleteRequestInformation [DeleteEdgeRule API Docs](https://docs.bunny.net/reference/pullzonepublic_deleteedgerule)
 // returns a *RequestInformation when successful

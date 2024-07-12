@@ -9,9 +9,9 @@ type ItemEdgerulesRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
 // AddOrUpdate the addOrUpdate property
-// returns a *ItemEdgerulesAddorupdateAddOrUpdateRequestBuilder when successful
-func (m *ItemEdgerulesRequestBuilder) AddOrUpdate()(*ItemEdgerulesAddorupdateAddOrUpdateRequestBuilder) {
-    return NewItemEdgerulesAddorupdateAddOrUpdateRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+// returns a *ItemEdgerulesAddOrUpdateRequestBuilder when successful
+func (m *ItemEdgerulesRequestBuilder) AddOrUpdate()(*ItemEdgerulesAddOrUpdateRequestBuilder) {
+    return NewItemEdgerulesAddOrUpdateRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // ByEdgeRuleId gets an item from the github.com/jlarmstrongiv/bunnysdkgo/bunny_api_client.pullzone.item.edgerules.item collection
 // returns a *ItemEdgerulesWithEdgeRuleItemRequestBuilder when successful

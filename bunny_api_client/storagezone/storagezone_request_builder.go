@@ -79,9 +79,9 @@ func (m *StoragezoneRequestBuilder) Post(ctx context.Context, body i35697601df58
     return res.(i35697601df5820fe555c46235c796ce9ca5e9d758cc28eaf0fc2ed84d4a3aaa1.StorageZoneable), nil
 }
 // ResetReadOnlyPassword the resetReadOnlyPassword property
-// returns a *ResetreadonlypasswordResetReadOnlyPasswordRequestBuilder when successful
-func (m *StoragezoneRequestBuilder) ResetReadOnlyPassword()(*ResetreadonlypasswordResetReadOnlyPasswordRequestBuilder) {
-    return NewResetreadonlypasswordResetReadOnlyPasswordRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+// returns a *ResetReadOnlyPasswordRequestBuilder when successful
+func (m *StoragezoneRequestBuilder) ResetReadOnlyPassword()(*ResetReadOnlyPasswordRequestBuilder) {
+    return NewResetReadOnlyPasswordRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // ToGetRequestInformation [ListStorageZones API Docs](https://docs.bunny.net/reference/storagezonepublic_index)
 // returns a *RequestInformation when successful

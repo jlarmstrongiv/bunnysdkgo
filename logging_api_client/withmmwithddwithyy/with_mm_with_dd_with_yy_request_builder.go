@@ -32,7 +32,7 @@ func NewWithMmWithDdWithYyRequestBuilder(rawUrl string, requestAdapter i2ae4187f
     return NewWithMmWithDdWithYyRequestBuilderInternal(urlParams, requestAdapter, nil, nil, nil)
 }
 // WithPullZoneIdLog builds and executes requests for operations under \{mm}-{dd}-{yy}\{pullZoneId}.log
-// returns a *WithpullzoneidlogWithPullZoneIdLogRequestBuilder when successful
-func (m *WithMmWithDdWithYyRequestBuilder) WithPullZoneIdLog(pullZoneId *int64)(*WithpullzoneidlogWithPullZoneIdLogRequestBuilder) {
-    return NewWithpullzoneidlogWithPullZoneIdLogRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter, pullZoneId)
+// returns a *WithPullZoneIdLogRequestBuilder when successful
+func (m *WithMmWithDdWithYyRequestBuilder) WithPullZoneIdLog(pullZoneId *int64)(*WithPullZoneIdLogRequestBuilder) {
+    return NewWithPullZoneIdLogRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter, pullZoneId)
 }

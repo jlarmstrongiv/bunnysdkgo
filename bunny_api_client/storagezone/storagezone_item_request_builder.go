@@ -68,9 +68,9 @@ func (m *StoragezoneItemRequestBuilder) Post(ctx context.Context, body i35697601
     return nil
 }
 // ResetPassword the resetPassword property
-// returns a *ItemResetpasswordResetPasswordRequestBuilder when successful
-func (m *StoragezoneItemRequestBuilder) ResetPassword()(*ItemResetpasswordResetPasswordRequestBuilder) {
-    return NewItemResetpasswordResetPasswordRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+// returns a *ItemResetPasswordRequestBuilder when successful
+func (m *StoragezoneItemRequestBuilder) ResetPassword()(*ItemResetPasswordRequestBuilder) {
+    return NewItemResetPasswordRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Statistics the statistics property
 // returns a *ItemStatisticsRequestBuilder when successful

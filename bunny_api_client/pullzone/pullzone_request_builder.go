@@ -65,9 +65,9 @@ func (m *PullzoneRequestBuilder) Get(ctx context.Context, requestConfiguration *
     return res.(PullzoneGetResponseable), nil
 }
 // LoadFreeCertificate the loadFreeCertificate property
-// returns a *LoadfreecertificateLoadFreeCertificateRequestBuilder when successful
-func (m *PullzoneRequestBuilder) LoadFreeCertificate()(*LoadfreecertificateLoadFreeCertificateRequestBuilder) {
-    return NewLoadfreecertificateLoadFreeCertificateRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+// returns a *LoadFreeCertificateRequestBuilder when successful
+func (m *PullzoneRequestBuilder) LoadFreeCertificate()(*LoadFreeCertificateRequestBuilder) {
+    return NewLoadFreeCertificateRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Post [AddPullZone API Docs](https://docs.bunny.net/reference/pullzonepublic_add)
 // returns a PullZoneable when successful

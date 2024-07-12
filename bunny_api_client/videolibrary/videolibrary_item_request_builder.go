@@ -15,14 +15,14 @@ type VideolibraryItemRequestBuilderGetQueryParameters struct {
     IncludeAccessKey *bool `uriparametername:"includeAccessKey"`
 }
 // AddAllowedReferrer the addAllowedReferrer property
-// returns a *ItemAddallowedreferrerAddAllowedReferrerRequestBuilder when successful
-func (m *VideolibraryItemRequestBuilder) AddAllowedReferrer()(*ItemAddallowedreferrerAddAllowedReferrerRequestBuilder) {
-    return NewItemAddallowedreferrerAddAllowedReferrerRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+// returns a *ItemAddAllowedReferrerRequestBuilder when successful
+func (m *VideolibraryItemRequestBuilder) AddAllowedReferrer()(*ItemAddAllowedReferrerRequestBuilder) {
+    return NewItemAddAllowedReferrerRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // AddBlockedReferrer the addBlockedReferrer property
-// returns a *ItemAddblockedreferrerAddBlockedReferrerRequestBuilder when successful
-func (m *VideolibraryItemRequestBuilder) AddBlockedReferrer()(*ItemAddblockedreferrerAddBlockedReferrerRequestBuilder) {
-    return NewItemAddblockedreferrerAddBlockedReferrerRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+// returns a *ItemAddBlockedReferrerRequestBuilder when successful
+func (m *VideolibraryItemRequestBuilder) AddBlockedReferrer()(*ItemAddBlockedReferrerRequestBuilder) {
+    return NewItemAddBlockedReferrerRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // NewVideolibraryItemRequestBuilderInternal instantiates a new VideolibraryItemRequestBuilder and sets the default values.
 func NewVideolibraryItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*VideolibraryItemRequestBuilder) {
@@ -82,19 +82,19 @@ func (m *VideolibraryItemRequestBuilder) Post(ctx context.Context, body ItemVide
     return res.(ie59f1fc195391a433ed92a6780c54480efff53cfc74cc731d5a61ccfbf9645d9.VideoLibraryable), nil
 }
 // RemoveAllowedReferrer the removeAllowedReferrer property
-// returns a *ItemRemoveallowedreferrerRemoveAllowedReferrerRequestBuilder when successful
-func (m *VideolibraryItemRequestBuilder) RemoveAllowedReferrer()(*ItemRemoveallowedreferrerRemoveAllowedReferrerRequestBuilder) {
-    return NewItemRemoveallowedreferrerRemoveAllowedReferrerRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+// returns a *ItemRemoveAllowedReferrerRequestBuilder when successful
+func (m *VideolibraryItemRequestBuilder) RemoveAllowedReferrer()(*ItemRemoveAllowedReferrerRequestBuilder) {
+    return NewItemRemoveAllowedReferrerRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // RemoveBlockedReferrer the removeBlockedReferrer property
-// returns a *ItemRemoveblockedreferrerRemoveBlockedReferrerRequestBuilder when successful
-func (m *VideolibraryItemRequestBuilder) RemoveBlockedReferrer()(*ItemRemoveblockedreferrerRemoveBlockedReferrerRequestBuilder) {
-    return NewItemRemoveblockedreferrerRemoveBlockedReferrerRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+// returns a *ItemRemoveBlockedReferrerRequestBuilder when successful
+func (m *VideolibraryItemRequestBuilder) RemoveBlockedReferrer()(*ItemRemoveBlockedReferrerRequestBuilder) {
+    return NewItemRemoveBlockedReferrerRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // ResetApiKey the resetApiKey property
-// returns a *ItemResetapikeyResetApiKeyRequestBuilder when successful
-func (m *VideolibraryItemRequestBuilder) ResetApiKey()(*ItemResetapikeyResetApiKeyRequestBuilder) {
-    return NewItemResetapikeyResetApiKeyRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+// returns a *ItemResetApiKeyRequestBuilder when successful
+func (m *VideolibraryItemRequestBuilder) ResetApiKey()(*ItemResetApiKeyRequestBuilder) {
+    return NewItemResetApiKeyRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // ToDeleteRequestInformation [DeleteVideoLibrary API Docs](https://docs.bunny.net/reference/videolibrarypublic_delete)
 // returns a *RequestInformation when successful
