@@ -22,7 +22,7 @@ type ItemSafehopStatisticsRequestBuilderGetQueryParameters struct {
 // NewItemSafehopStatisticsRequestBuilderInternal instantiates a new ItemSafehopStatisticsRequestBuilder and sets the default values.
 func NewItemSafehopStatisticsRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemSafehopStatisticsRequestBuilder) {
     m := &ItemSafehopStatisticsRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/pullzone/{%2Did}/safehop/statistics{?dateFrom*,dateTo*,hourly*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/pullzone/{%2Did}/safehop/statistics{?dateFrom,dateTo,hourly}", pathParameters),
     }
     return m
 }

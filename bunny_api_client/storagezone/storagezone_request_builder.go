@@ -36,7 +36,7 @@ func (m *StoragezoneRequestBuilder) Checkavailability()(*CheckavailabilityReques
 // NewStoragezoneRequestBuilderInternal instantiates a new StoragezoneRequestBuilder and sets the default values.
 func NewStoragezoneRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*StoragezoneRequestBuilder) {
     m := &StoragezoneRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/storagezone?includeDeleted={includeDeleted}&page={page}&perPage={perPage}{&search*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/storagezone?includeDeleted={includeDeleted}&page={page}&perPage={perPage}{&search}", pathParameters),
     }
     return m
 }

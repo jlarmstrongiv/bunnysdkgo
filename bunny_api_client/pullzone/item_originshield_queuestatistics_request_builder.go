@@ -22,7 +22,7 @@ type ItemOriginshieldQueuestatisticsRequestBuilderGetQueryParameters struct {
 // NewItemOriginshieldQueuestatisticsRequestBuilderInternal instantiates a new ItemOriginshieldQueuestatisticsRequestBuilder and sets the default values.
 func NewItemOriginshieldQueuestatisticsRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemOriginshieldQueuestatisticsRequestBuilder) {
     m := &ItemOriginshieldQueuestatisticsRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/pullzone/{%2Did}/originshield/queuestatistics{?dateFrom*,dateTo*,hourly*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/pullzone/{%2Did}/originshield/queuestatistics{?dateFrom,dateTo,hourly}", pathParameters),
     }
     return m
 }

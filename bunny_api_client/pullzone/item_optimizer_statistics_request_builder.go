@@ -22,7 +22,7 @@ type ItemOptimizerStatisticsRequestBuilderGetQueryParameters struct {
 // NewItemOptimizerStatisticsRequestBuilderInternal instantiates a new ItemOptimizerStatisticsRequestBuilder and sets the default values.
 func NewItemOptimizerStatisticsRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemOptimizerStatisticsRequestBuilder) {
     m := &ItemOptimizerStatisticsRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/pullzone/{%2Did}/optimizer/statistics{?dateFrom*,dateTo*,hourly*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/pullzone/{%2Did}/optimizer/statistics{?dateFrom,dateTo,hourly}", pathParameters),
     }
     return m
 }

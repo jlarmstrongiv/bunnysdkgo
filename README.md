@@ -10,4 +10,4 @@ go get github.com/jlarmstrongiv/bunnysdkgo
 
 ## Documentation
 
-Please read the [docs](https://bunny-launcher.com/bunny-sdk/languages/go/) for usage and examples.
+Please read the [docs](https://bunny-launcher.net/bunny-sdk/languages/go/) for usage and examples.

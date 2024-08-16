@@ -23,7 +23,7 @@ func (m *ItemVideosWithVideoItemRequestBuilder) Captions()(*ItemVideosItemCaptio
 // NewItemVideosWithVideoItemRequestBuilderInternal instantiates a new ItemVideosWithVideoItemRequestBuilder and sets the default values.
 func NewItemVideosWithVideoItemRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemVideosWithVideoItemRequestBuilder) {
     m := &ItemVideosWithVideoItemRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/library/{libraryId}/videos/{videoId}{?enabledResolutions*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/library/{libraryId}/videos/{videoId}{?enabledResolutions}", pathParameters),
     }
     return m
 }

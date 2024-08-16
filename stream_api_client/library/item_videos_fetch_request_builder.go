@@ -19,7 +19,7 @@ type ItemVideosFetchRequestBuilderPostQueryParameters struct {
 // NewItemVideosFetchRequestBuilderInternal instantiates a new ItemVideosFetchRequestBuilder and sets the default values.
 func NewItemVideosFetchRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemVideosFetchRequestBuilder) {
     m := &ItemVideosFetchRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/library/{libraryId}/videos/fetch{?collectionId*,thumbnailTime*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/library/{libraryId}/videos/fetch{?collectionId,thumbnailTime}", pathParameters),
     }
     return m
 }

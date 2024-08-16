@@ -38,7 +38,7 @@ func (m *PullzoneRequestBuilder) Checkavailability()(*CheckavailabilityRequestBu
 // NewPullzoneRequestBuilderInternal instantiates a new PullzoneRequestBuilder and sets the default values.
 func NewPullzoneRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*PullzoneRequestBuilder) {
     m := &PullzoneRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/pullzone?includeCertificate={includeCertificate}&page={page}&perPage={perPage}{&search*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/pullzone?includeCertificate={includeCertificate}&page={page}&perPage={perPage}{&search}", pathParameters),
     }
     return m
 }

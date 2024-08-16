@@ -24,7 +24,7 @@ type ItemStatisticsRequestBuilderGetQueryParameters struct {
 // NewItemStatisticsRequestBuilderInternal instantiates a new ItemStatisticsRequestBuilder and sets the default values.
 func NewItemStatisticsRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemStatisticsRequestBuilder) {
     m := &ItemStatisticsRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/library/{libraryId}/statistics{?dateFrom*,dateTo*,hourly*,videoGuid*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/library/{libraryId}/statistics{?dateFrom,dateTo,hourly,videoGuid}", pathParameters),
     }
     return m
 }

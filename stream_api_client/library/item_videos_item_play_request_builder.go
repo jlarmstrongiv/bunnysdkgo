@@ -18,7 +18,7 @@ type ItemVideosItemPlayRequestBuilderGetQueryParameters struct {
 // NewItemVideosItemPlayRequestBuilderInternal instantiates a new ItemVideosItemPlayRequestBuilder and sets the default values.
 func NewItemVideosItemPlayRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemVideosItemPlayRequestBuilder) {
     m := &ItemVideosItemPlayRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/library/{libraryId}/videos/{videoId}/play{?expires*,token*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/library/{libraryId}/videos/{videoId}/play{?expires,token}", pathParameters),
     }
     return m
 }

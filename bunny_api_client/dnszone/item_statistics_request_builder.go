@@ -20,7 +20,7 @@ type ItemStatisticsRequestBuilderGetQueryParameters struct {
 // NewItemStatisticsRequestBuilderInternal instantiates a new ItemStatisticsRequestBuilder and sets the default values.
 func NewItemStatisticsRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ItemStatisticsRequestBuilder) {
     m := &ItemStatisticsRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/dnszone/{%2Did}/statistics{?dateFrom*,dateTo*}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/dnszone/{%2Did}/statistics{?dateFrom,dateTo}", pathParameters),
     }
     return m
 }
