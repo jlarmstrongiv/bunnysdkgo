@@ -10,8 +10,10 @@ import (
     i04446dd5f43c38305f91a912dfb95a45fc7d4686f04dcb143d94290df46e55a7 "github.com/jlarmstrongiv/bunnysdkgo/bunny_api_client/pullzone"
     i13a7f47864c2bc469cba5cd509273efe6313639b4f041cfd4330d0826b71a722 "github.com/jlarmstrongiv/bunnysdkgo/bunny_api_client/storagezone"
     i1df398bc7f450737dc59831b38bba21267d762f5969b6bcaa9abb48ebc24d342 "github.com/jlarmstrongiv/bunnysdkgo/bunny_api_client/purge"
+    i1e3caa6b51fe51dd455e9c7efefcbcfd70f4eb921c709823a6c1ed965954a6a4 "github.com/jlarmstrongiv/bunnysdkgo/bunny_api_client/billing"
     i2e106339050d580d634403434d02e53aaca2a64340faa5a0ce7aca07ed0e6e12 "github.com/jlarmstrongiv/bunnysdkgo/bunny_api_client/dnszone"
     i377048dca1814723a939a7274f5ec303aaffc360616b738b40608efae435b57d "github.com/jlarmstrongiv/bunnysdkgo/bunny_api_client/region"
+    i66c6c8423d3e244f9b252f5d0e801a9511566dde3480b3cd71227e524fc42060 "github.com/jlarmstrongiv/bunnysdkgo/bunny_api_client/search"
     i6bdfc1a35ff48cc7dbffad31fefc4f88ef4cd45ba07d0ac23dfe162809c15beb "github.com/jlarmstrongiv/bunnysdkgo/bunny_api_client/abusecase"
     i6e3842db341a5610201f61033bc934721e41b16770557e11141e92b9f5c5c24b "github.com/jlarmstrongiv/bunnysdkgo/bunny_api_client/statistics"
     i7bc90c81065b86d4f885cdec69e088e5871c78e883ca3c0f18ffc084835e9fb2 "github.com/jlarmstrongiv/bunnysdkgo/bunny_api_client/dmca"
@@ -35,6 +37,11 @@ func (m *BunnyApiClient) Abusecase()(*i6bdfc1a35ff48cc7dbffad31fefc4f88ef4cd45ba
 // returns a *ApikeyRequestBuilder when successful
 func (m *BunnyApiClient) Apikey()(*i7edbf63066cba701ea993debb7eb5302007ac4f9ec55b180dfbc3a2545de0bc9.ApikeyRequestBuilder) {
     return i7edbf63066cba701ea993debb7eb5302007ac4f9ec55b180dfbc3a2545de0bc9.NewApikeyRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
+// Billing the billing property
+// returns a *BillingRequestBuilder when successful
+func (m *BunnyApiClient) Billing()(*i1e3caa6b51fe51dd455e9c7efefcbcfd70f4eb921c709823a6c1ed965954a6a4.BillingRequestBuilder) {
+    return i1e3caa6b51fe51dd455e9c7efefcbcfd70f4eb921c709823a6c1ed965954a6a4.NewBillingRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Compute the compute property
 // returns a *ComputeRequestBuilder when successful
@@ -88,6 +95,11 @@ func (m *BunnyApiClient) Purge()(*i1df398bc7f450737dc59831b38bba21267d762f5969b6
 // returns a *RegionRequestBuilder when successful
 func (m *BunnyApiClient) Region()(*i377048dca1814723a939a7274f5ec303aaffc360616b738b40608efae435b57d.RegionRequestBuilder) {
     return i377048dca1814723a939a7274f5ec303aaffc360616b738b40608efae435b57d.NewRegionRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
+// Search the search property
+// returns a *SearchRequestBuilder when successful
+func (m *BunnyApiClient) Search()(*i66c6c8423d3e244f9b252f5d0e801a9511566dde3480b3cd71227e524fc42060.SearchRequestBuilder) {
+    return i66c6c8423d3e244f9b252f5d0e801a9511566dde3480b3cd71227e524fc42060.NewSearchRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Statistics the statistics property
 // returns a *StatisticsRequestBuilder when successful

@@ -117,6 +117,11 @@ func (m *ItemVideosWithVideoItemRequestBuilder) Reencode()(*ItemVideosItemReenco
 func (m *ItemVideosWithVideoItemRequestBuilder) Repackage()(*ItemVideosItemRepackageRequestBuilder) {
     return NewItemVideosItemRepackageRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
+// Resolutions the resolutions property
+// returns a *ItemVideosItemResolutionsRequestBuilder when successful
+func (m *ItemVideosWithVideoItemRequestBuilder) Resolutions()(*ItemVideosItemResolutionsRequestBuilder) {
+    return NewItemVideosItemResolutionsRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
 // Thumbnail the thumbnail property
 // returns a *ItemVideosItemThumbnailRequestBuilder when successful
 func (m *ItemVideosWithVideoItemRequestBuilder) Thumbnail()(*ItemVideosItemThumbnailRequestBuilder) {

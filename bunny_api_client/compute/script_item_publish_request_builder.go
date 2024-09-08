@@ -9,10 +9,27 @@ import (
 type ScriptItemPublishRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
+// ScriptItemPublishRequestBuilderPostQueryParameters [PublishComputeScript API Docs](https://docs.bunny.net/reference/computeedgescriptpublic_publish)
+type ScriptItemPublishRequestBuilderPostQueryParameters struct {
+    // The UUID of the script release that will be published
+    Uuid *string `uriparametername:"uuid"`
+}
+// ByUuid gets an item from the github.com/jlarmstrongiv/bunnysdkgo/bunny_api_client.compute.script.item.publish.item collection
+// returns a *ScriptItemPublishWithUuItemRequestBuilder when successful
+func (m *ScriptItemPublishRequestBuilder) ByUuid(uuid string)(*ScriptItemPublishWithUuItemRequestBuilder) {
+    urlTplParams := make(map[string]string)
+    for idx, item := range m.BaseRequestBuilder.PathParameters {
+        urlTplParams[idx] = item
+    }
+    if uuid != "" {
+        urlTplParams["uuid"] = uuid
+    }
+    return NewScriptItemPublishWithUuItemRequestBuilderInternal(urlTplParams, m.BaseRequestBuilder.RequestAdapter)
+}
 // NewScriptItemPublishRequestBuilderInternal instantiates a new ScriptItemPublishRequestBuilder and sets the default values.
 func NewScriptItemPublishRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ScriptItemPublishRequestBuilder) {
     m := &ScriptItemPublishRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/compute/script/{id}/publish", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/compute/script/{id}/publish?uuid={uuid}", pathParameters),
     }
     return m
 }
@@ -23,7 +40,7 @@ func NewScriptItemPublishRequestBuilder(rawUrl string, requestAdapter i2ae4187f7
     return NewScriptItemPublishRequestBuilderInternal(urlParams, requestAdapter)
 }
 // Post [PublishComputeScript API Docs](https://docs.bunny.net/reference/computeedgescriptpublic_publish)
-func (m *ScriptItemPublishRequestBuilder) Post(ctx context.Context, body ScriptItemPublishPostRequestBodyable, requestConfiguration *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestConfiguration[i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.DefaultQueryParameters])(error) {
+func (m *ScriptItemPublishRequestBuilder) Post(ctx context.Context, body ScriptItemPublishPostRequestBodyable, requestConfiguration *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestConfiguration[ScriptItemPublishRequestBuilderPostQueryParameters])(error) {
     requestInfo, err := m.ToPostRequestInformation(ctx, body, requestConfiguration);
     if err != nil {
         return err
@@ -36,7 +53,7 @@ func (m *ScriptItemPublishRequestBuilder) Post(ctx context.Context, body ScriptI
 }
 // ToPostRequestInformation [PublishComputeScript API Docs](https://docs.bunny.net/reference/computeedgescriptpublic_publish)
 // returns a *RequestInformation when successful
-func (m *ScriptItemPublishRequestBuilder) ToPostRequestInformation(ctx context.Context, body ScriptItemPublishPostRequestBodyable, requestConfiguration *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestConfiguration[i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.DefaultQueryParameters])(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
+func (m *ScriptItemPublishRequestBuilder) ToPostRequestInformation(ctx context.Context, body ScriptItemPublishPostRequestBodyable, requestConfiguration *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestConfiguration[ScriptItemPublishRequestBuilderPostQueryParameters])(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {
     requestInfo := i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewRequestInformationWithMethodAndUrlTemplateAndPathParameters(i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.POST, m.BaseRequestBuilder.UrlTemplate, m.BaseRequestBuilder.PathParameters)
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.ConfigureRequestInformation(requestInfo, requestConfiguration)
     err := requestInfo.SetContentFromParsable(ctx, m.BaseRequestBuilder.RequestAdapter, "application/json", body)
