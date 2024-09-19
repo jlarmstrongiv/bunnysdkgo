@@ -15,10 +15,14 @@ type Script struct {
     defaultHostname *string
     // The Deleted property
     deleted *bool
+    // The DeploymentKey property
+    deploymentKey *string
     // The EdgeScriptVariables property
     edgeScriptVariables []EdgeScriptVariableable
     // The Id property
     id *int64
+    // The IntegrationEnabled property
+    integrationEnabled *bool
     // The LastModified property
     lastModified *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
     // The LinkedPullZones property
@@ -62,6 +66,11 @@ func (m *Script) GetDefaultHostname()(*string) {
 func (m *Script) GetDeleted()(*bool) {
     return m.deleted
 }
+// GetDeploymentKey gets the DeploymentKey property value. The DeploymentKey property
+// returns a *string when successful
+func (m *Script) GetDeploymentKey()(*string) {
+    return m.deploymentKey
+}
 // GetEdgeScriptVariables gets the EdgeScriptVariables property value. The EdgeScriptVariables property
 // returns a []EdgeScriptVariableable when successful
 func (m *Script) GetEdgeScriptVariables()([]EdgeScriptVariableable) {
@@ -101,6 +110,16 @@ func (m *Script) GetFieldDeserializers()(map[string]func(i878a80d2330e89d2689638
         }
         return nil
     }
+    res["DeploymentKey"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetDeploymentKey(val)
+        }
+        return nil
+    }
     res["EdgeScriptVariables"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetCollectionOfObjectValues(CreateEdgeScriptVariableFromDiscriminatorValue)
         if err != nil {
@@ -124,6 +143,16 @@ func (m *Script) GetFieldDeserializers()(map[string]func(i878a80d2330e89d2689638
         }
         if val != nil {
             m.SetId(val)
+        }
+        return nil
+    }
+    res["IntegrationEnabled"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetBoolValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetIntegrationEnabled(val)
         }
         return nil
     }
@@ -190,6 +219,11 @@ func (m *Script) GetFieldDeserializers()(map[string]func(i878a80d2330e89d2689638
 func (m *Script) GetId()(*int64) {
     return m.id
 }
+// GetIntegrationEnabled gets the IntegrationEnabled property value. The IntegrationEnabled property
+// returns a *bool when successful
+func (m *Script) GetIntegrationEnabled()(*bool) {
+    return m.integrationEnabled
+}
 // GetLastModified gets the LastModified property value. The LastModified property
 // returns a *Time when successful
 func (m *Script) GetLastModified()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
@@ -253,6 +287,10 @@ func (m *Script) SetDefaultHostname(value *string)() {
 func (m *Script) SetDeleted(value *bool)() {
     m.deleted = value
 }
+// SetDeploymentKey sets the DeploymentKey property value. The DeploymentKey property
+func (m *Script) SetDeploymentKey(value *string)() {
+    m.deploymentKey = value
+}
 // SetEdgeScriptVariables sets the EdgeScriptVariables property value. The EdgeScriptVariables property
 func (m *Script) SetEdgeScriptVariables(value []EdgeScriptVariableable)() {
     m.edgeScriptVariables = value
@@ -260,6 +298,10 @@ func (m *Script) SetEdgeScriptVariables(value []EdgeScriptVariableable)() {
 // SetId sets the Id property value. The Id property
 func (m *Script) SetId(value *int64)() {
     m.id = value
+}
+// SetIntegrationEnabled sets the IntegrationEnabled property value. The IntegrationEnabled property
+func (m *Script) SetIntegrationEnabled(value *bool)() {
+    m.integrationEnabled = value
 }
 // SetLastModified sets the LastModified property value. The LastModified property
 func (m *Script) SetLastModified(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)() {
@@ -287,8 +329,10 @@ type Scriptable interface {
     GetCurrentReleaseId()(*int64)
     GetDefaultHostname()(*string)
     GetDeleted()(*bool)
+    GetDeploymentKey()(*string)
     GetEdgeScriptVariables()([]EdgeScriptVariableable)
     GetId()(*int64)
+    GetIntegrationEnabled()(*bool)
     GetLastModified()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
     GetLinkedPullZones()([]i9d3c79fc44359c9b4b531e313634f16de3ba545b486fa45d121ca75ff09e2fe4.PullZoneable)
     GetName()(*string)
@@ -297,8 +341,10 @@ type Scriptable interface {
     SetCurrentReleaseId(value *int64)()
     SetDefaultHostname(value *string)()
     SetDeleted(value *bool)()
+    SetDeploymentKey(value *string)()
     SetEdgeScriptVariables(value []EdgeScriptVariableable)()
     SetId(value *int64)()
+    SetIntegrationEnabled(value *bool)()
     SetLastModified(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)()
     SetLinkedPullZones(value []i9d3c79fc44359c9b4b531e313634f16de3ba545b486fa45d121ca75ff09e2fe4.PullZoneable)()
     SetName(value *string)()

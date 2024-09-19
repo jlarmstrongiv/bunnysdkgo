@@ -13,6 +13,7 @@ type ScriptRequestBuilder struct {
 }
 // ScriptRequestBuilderGetQueryParameters [ListComputeScripts API Docs](https://docs.bunny.net/reference/computeedgescriptpublic_index)
 type ScriptRequestBuilderGetQueryParameters struct {
+    IncludeLinkedPullZones *bool `uriparametername:"includeLinkedPullZones"`
     Page *int32 `uriparametername:"page"`
     PerPage *int32 `uriparametername:"perPage"`
     // The search term that will be used to filter the results
@@ -31,7 +32,7 @@ func (m *ScriptRequestBuilder) ById(id int64)(*ScriptScriptItemRequestBuilder) {
 // NewScriptRequestBuilderInternal instantiates a new ScriptRequestBuilder and sets the default values.
 func NewScriptRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*ScriptRequestBuilder) {
     m := &ScriptRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/compute/script?page={page}&perPage={perPage}&search={search}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/compute/script?page={page}&perPage={perPage}&search={search}{&includeLinkedPullZones}", pathParameters),
     }
     return m
 }
