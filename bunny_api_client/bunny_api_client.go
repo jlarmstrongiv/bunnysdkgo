@@ -21,6 +21,8 @@ import (
     i7edbf63066cba701ea993debb7eb5302007ac4f9ec55b180dfbc3a2545de0bc9 "github.com/jlarmstrongiv/bunnysdkgo/bunny_api_client/apikey"
     i890214f15603b1b0b0ee41752309e10824e2e6000f780351b351277bee1746c6 "github.com/jlarmstrongiv/bunnysdkgo/bunny_api_client/country"
     i8be85f438a79b762541a21d21b21f1899855bab9450dd25814c61b929f6481fe "github.com/jlarmstrongiv/bunnysdkgo/bunny_api_client/compute"
+    icac12aa4aaa748d9d556b239f80018f742bec900e63f1cb462389d176509020e "github.com/jlarmstrongiv/bunnysdkgo/bunny_api_client/integration"
+    ice666223b137e9b14e6862a1d92bfa515df40b789da4f360c6d820c848c1c6f0 "github.com/jlarmstrongiv/bunnysdkgo/bunny_api_client/shield"
     iebce79a343781483f9d5134c68ef339f0f2202b30014f70f53d1b1b096f3d877 "github.com/jlarmstrongiv/bunnysdkgo/bunny_api_client/videolibrary"
 )
 
@@ -81,6 +83,11 @@ func (m *BunnyApiClient) Dmca()(*i7bc90c81065b86d4f885cdec69e088e5871c78e883ca3c
 func (m *BunnyApiClient) Dnszone()(*i2e106339050d580d634403434d02e53aaca2a64340faa5a0ce7aca07ed0e6e12.DnszoneRequestBuilder) {
     return i2e106339050d580d634403434d02e53aaca2a64340faa5a0ce7aca07ed0e6e12.NewDnszoneRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
+// Integration the integration property
+// returns a *IntegrationRequestBuilder when successful
+func (m *BunnyApiClient) Integration()(*icac12aa4aaa748d9d556b239f80018f742bec900e63f1cb462389d176509020e.IntegrationRequestBuilder) {
+    return icac12aa4aaa748d9d556b239f80018f742bec900e63f1cb462389d176509020e.NewIntegrationRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
 // Pullzone the pullzone property
 // returns a *PullzoneRequestBuilder when successful
 func (m *BunnyApiClient) Pullzone()(*i04446dd5f43c38305f91a912dfb95a45fc7d4686f04dcb143d94290df46e55a7.PullzoneRequestBuilder) {
@@ -100,6 +107,11 @@ func (m *BunnyApiClient) Region()(*i377048dca1814723a939a7274f5ec303aaffc360616b
 // returns a *SearchRequestBuilder when successful
 func (m *BunnyApiClient) Search()(*i66c6c8423d3e244f9b252f5d0e801a9511566dde3480b3cd71227e524fc42060.SearchRequestBuilder) {
     return i66c6c8423d3e244f9b252f5d0e801a9511566dde3480b3cd71227e524fc42060.NewSearchRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
+// Shield the shield property
+// returns a *ShieldRequestBuilder when successful
+func (m *BunnyApiClient) Shield()(*ice666223b137e9b14e6862a1d92bfa515df40b789da4f360c6d820c848c1c6f0.ShieldRequestBuilder) {
+    return ice666223b137e9b14e6862a1d92bfa515df40b789da4f360c6d820c848c1c6f0.NewShieldRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
 }
 // Statistics the statistics property
 // returns a *StatisticsRequestBuilder when successful

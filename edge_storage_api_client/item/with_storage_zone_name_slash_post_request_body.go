@@ -4,7 +4,7 @@ import (
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
 )
 
-type WithStorageZoneNamePostRequestBody struct {
+type WithStorageZoneNameSlashPostRequestBody struct {
     // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
     additionalData map[string]any
     // The Paths property
@@ -12,26 +12,26 @@ type WithStorageZoneNamePostRequestBody struct {
     // The RootPath property
     rootPath *string
 }
-// NewWithStorageZoneNamePostRequestBody instantiates a new WithStorageZoneNamePostRequestBody and sets the default values.
-func NewWithStorageZoneNamePostRequestBody()(*WithStorageZoneNamePostRequestBody) {
-    m := &WithStorageZoneNamePostRequestBody{
+// NewWithStorageZoneNameSlashPostRequestBody instantiates a new WithStorageZoneNameSlashPostRequestBody and sets the default values.
+func NewWithStorageZoneNameSlashPostRequestBody()(*WithStorageZoneNameSlashPostRequestBody) {
+    m := &WithStorageZoneNameSlashPostRequestBody{
     }
     m.SetAdditionalData(make(map[string]any))
     return m
 }
-// CreateWithStorageZoneNamePostRequestBodyFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
+// CreateWithStorageZoneNameSlashPostRequestBodyFromDiscriminatorValue creates a new instance of the appropriate class based on discriminator value
 // returns a Parsable when successful
-func CreateWithStorageZoneNamePostRequestBodyFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
-    return NewWithStorageZoneNamePostRequestBody(), nil
+func CreateWithStorageZoneNameSlashPostRequestBodyFromDiscriminatorValue(parseNode i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable, error) {
+    return NewWithStorageZoneNameSlashPostRequestBody(), nil
 }
 // GetAdditionalData gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
 // returns a map[string]any when successful
-func (m *WithStorageZoneNamePostRequestBody) GetAdditionalData()(map[string]any) {
+func (m *WithStorageZoneNameSlashPostRequestBody) GetAdditionalData()(map[string]any) {
     return m.additionalData
 }
 // GetFieldDeserializers the deserialization information for the current model
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
-func (m *WithStorageZoneNamePostRequestBody) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
+func (m *WithStorageZoneNameSlashPostRequestBody) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error)) {
     res := make(map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error))
     res["Paths"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetCollectionOfPrimitiveValues("string")
@@ -63,16 +63,16 @@ func (m *WithStorageZoneNamePostRequestBody) GetFieldDeserializers()(map[string]
 }
 // GetPaths gets the Paths property value. The Paths property
 // returns a []string when successful
-func (m *WithStorageZoneNamePostRequestBody) GetPaths()([]string) {
+func (m *WithStorageZoneNameSlashPostRequestBody) GetPaths()([]string) {
     return m.paths
 }
 // GetRootPath gets the RootPath property value. The RootPath property
 // returns a *string when successful
-func (m *WithStorageZoneNamePostRequestBody) GetRootPath()(*string) {
+func (m *WithStorageZoneNameSlashPostRequestBody) GetRootPath()(*string) {
     return m.rootPath
 }
 // Serialize serializes information the current object
-func (m *WithStorageZoneNamePostRequestBody) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
+func (m *WithStorageZoneNameSlashPostRequestBody) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
     if m.GetPaths() != nil {
         err := writer.WriteCollectionOfStringValues("Paths", m.GetPaths())
         if err != nil {
@@ -94,18 +94,18 @@ func (m *WithStorageZoneNamePostRequestBody) Serialize(writer i878a80d2330e89d26
     return nil
 }
 // SetAdditionalData sets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-func (m *WithStorageZoneNamePostRequestBody) SetAdditionalData(value map[string]any)() {
+func (m *WithStorageZoneNameSlashPostRequestBody) SetAdditionalData(value map[string]any)() {
     m.additionalData = value
 }
 // SetPaths sets the Paths property value. The Paths property
-func (m *WithStorageZoneNamePostRequestBody) SetPaths(value []string)() {
+func (m *WithStorageZoneNameSlashPostRequestBody) SetPaths(value []string)() {
     m.paths = value
 }
 // SetRootPath sets the RootPath property value. The RootPath property
-func (m *WithStorageZoneNamePostRequestBody) SetRootPath(value *string)() {
+func (m *WithStorageZoneNameSlashPostRequestBody) SetRootPath(value *string)() {
     m.rootPath = value
 }
-type WithStorageZoneNamePostRequestBodyable interface {
+type WithStorageZoneNameSlashPostRequestBodyable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.AdditionalDataHolder
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetPaths()([]string)

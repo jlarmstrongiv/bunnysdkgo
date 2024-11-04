@@ -85,6 +85,16 @@ func (m *PullzoneRequestBuilder) Post(ctx context.Context, body i9d3c79fc44359c9
     }
     return res.(i9d3c79fc44359c9b4b531e313634f16de3ba545b486fa45d121ca75ff09e2fe4.PullZoneable), nil
 }
+// SetZoneSecurityEnabled the setZoneSecurityEnabled property
+// returns a *SetZoneSecurityEnabledRequestBuilder when successful
+func (m *PullzoneRequestBuilder) SetZoneSecurityEnabled()(*SetZoneSecurityEnabledRequestBuilder) {
+    return NewSetZoneSecurityEnabledRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
+// SetZoneSecurityIncludeHashRemoteIPEnabled the setZoneSecurityIncludeHashRemoteIPEnabled property
+// returns a *SetZoneSecurityIncludeHashRemoteIPEnabledRequestBuilder when successful
+func (m *PullzoneRequestBuilder) SetZoneSecurityIncludeHashRemoteIPEnabled()(*SetZoneSecurityIncludeHashRemoteIPEnabledRequestBuilder) {
+    return NewSetZoneSecurityIncludeHashRemoteIPEnabledRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter)
+}
 // ToGetRequestInformation [ListPullZones API Docs](https://docs.bunny.net/reference/pullzonepublic_index)
 // returns a *RequestInformation when successful
 func (m *PullzoneRequestBuilder) ToGetRequestInformation(ctx context.Context, requestConfiguration *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestConfiguration[PullzoneRequestBuilderGetQueryParameters])(*i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestInformation, error) {

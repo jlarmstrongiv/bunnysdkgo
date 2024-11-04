@@ -1,7 +1,6 @@
 package withmmwithddwithyy
 
 import (
-    i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274 "strconv"
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f "github.com/microsoft/kiota-abstractions-go"
 )
 
@@ -10,18 +9,18 @@ type WithMmWithDdWithYyRequestBuilder struct {
     i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.BaseRequestBuilder
 }
 // NewWithMmWithDdWithYyRequestBuilderInternal instantiates a new WithMmWithDdWithYyRequestBuilder and sets the default values.
-func NewWithMmWithDdWithYyRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter, dd *int32, mm *int32, yy *int32)(*WithMmWithDdWithYyRequestBuilder) {
+func NewWithMmWithDdWithYyRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter, dd *string, mm *string, yy *string)(*WithMmWithDdWithYyRequestBuilder) {
     m := &WithMmWithDdWithYyRequestBuilder{
         BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/{mm}-{dd}-{yy}", pathParameters),
     }
     if dd != nil {
-        m.BaseRequestBuilder.PathParameters["dd"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(int64(*dd), 10)
+        m.BaseRequestBuilder.PathParameters["dd"] = *dd
     }
     if mm != nil {
-        m.BaseRequestBuilder.PathParameters["mm"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(int64(*mm), 10)
+        m.BaseRequestBuilder.PathParameters["mm"] = *mm
     }
     if yy != nil {
-        m.BaseRequestBuilder.PathParameters["yy"] = i53ac87e8cb3cc9276228f74d38694a208cacb99bb8ceb705eeae99fb88d4d274.FormatInt(int64(*yy), 10)
+        m.BaseRequestBuilder.PathParameters["yy"] = *yy
     }
     return m
 }

@@ -14,6 +14,8 @@ type ScriptRelease struct {
     authorEmail *string
     // The Code property
     code *string
+    // The CommitSha property
+    commitSha *string
     // The DatePublished property
     datePublished *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
     // The DateReleased property
@@ -61,6 +63,11 @@ func (m *ScriptRelease) GetAuthorEmail()(*string) {
 func (m *ScriptRelease) GetCode()(*string) {
     return m.code
 }
+// GetCommitSha gets the CommitSha property value. The CommitSha property
+// returns a *string when successful
+func (m *ScriptRelease) GetCommitSha()(*string) {
+    return m.commitSha
+}
 // GetDatePublished gets the DatePublished property value. The DatePublished property
 // returns a *Time when successful
 func (m *ScriptRelease) GetDatePublished()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
@@ -107,6 +114,16 @@ func (m *ScriptRelease) GetFieldDeserializers()(map[string]func(i878a80d2330e89d
         }
         if val != nil {
             m.SetCode(val)
+        }
+        return nil
+    }
+    res["CommitSha"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetCommitSha(val)
         }
         return nil
     }
@@ -223,6 +240,12 @@ func (m *ScriptRelease) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0
         }
     }
     {
+        err := writer.WriteStringValue("CommitSha", m.GetCommitSha())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err := writer.WriteTimeValue("DatePublished", m.GetDatePublished())
         if err != nil {
             return err
@@ -288,6 +311,10 @@ func (m *ScriptRelease) SetAuthorEmail(value *string)() {
 func (m *ScriptRelease) SetCode(value *string)() {
     m.code = value
 }
+// SetCommitSha sets the CommitSha property value. The CommitSha property
+func (m *ScriptRelease) SetCommitSha(value *string)() {
+    m.commitSha = value
+}
 // SetDatePublished sets the DatePublished property value. The DatePublished property
 func (m *ScriptRelease) SetDatePublished(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)() {
     m.datePublished = value
@@ -322,6 +349,7 @@ type ScriptReleaseable interface {
     GetAuthor()(*string)
     GetAuthorEmail()(*string)
     GetCode()(*string)
+    GetCommitSha()(*string)
     GetDatePublished()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
     GetDateReleased()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
     GetDeleted()(*bool)
@@ -332,6 +360,7 @@ type ScriptReleaseable interface {
     SetAuthor(value *string)()
     SetAuthorEmail(value *string)()
     SetCode(value *string)()
+    SetCommitSha(value *string)()
     SetDatePublished(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)()
     SetDateReleased(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)()
     SetDeleted(value *bool)()

@@ -3,7 +3,6 @@ package compute
 import (
     i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e "time"
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91 "github.com/microsoft/kiota-abstractions-go/serialization"
-    i9d3c79fc44359c9b4b531e313634f16de3ba545b486fa45d121ca75ff09e2fe4 "github.com/jlarmstrongiv/bunnysdkgo/bunny_api_client/models/pullzone"
 )
 
 type Script struct {
@@ -21,14 +20,24 @@ type Script struct {
     edgeScriptVariables []EdgeScriptVariableable
     // The Id property
     id *int64
-    // The IntegrationEnabled property
-    integrationEnabled *bool
+    // The Integration property
+    integration Integrationable
+    // The IntegrationId property
+    integrationId *int64
     // The LastModified property
     lastModified *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
     // The LinkedPullZones property
-    linkedPullZones []i9d3c79fc44359c9b4b531e313634f16de3ba545b486fa45d121ca75ff09e2fe4.PullZoneable
+    linkedPullZones []LinkedPullZoneable
+    // The MonthlyCost property
+    monthlyCost *float64
+    // The MonthlyCpuTime property
+    monthlyCpuTime *int32
+    // The MonthlyRequestCount property
+    monthlyRequestCount *int32
     // The Name property
     name *string
+    // The RepositoryId property
+    repositoryId *int64
     // The ScriptType property
     scriptType *float64
     // The SystemHostname property
@@ -146,13 +155,23 @@ func (m *Script) GetFieldDeserializers()(map[string]func(i878a80d2330e89d2689638
         }
         return nil
     }
-    res["IntegrationEnabled"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetBoolValue()
+    res["Integration"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(CreateIntegrationFromDiscriminatorValue)
         if err != nil {
             return err
         }
         if val != nil {
-            m.SetIntegrationEnabled(val)
+            m.SetIntegration(val.(Integrationable))
+        }
+        return nil
+    }
+    res["IntegrationId"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetInt64Value()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetIntegrationId(val)
         }
         return nil
     }
@@ -167,18 +186,48 @@ func (m *Script) GetFieldDeserializers()(map[string]func(i878a80d2330e89d2689638
         return nil
     }
     res["LinkedPullZones"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
-        val, err := n.GetCollectionOfObjectValues(i9d3c79fc44359c9b4b531e313634f16de3ba545b486fa45d121ca75ff09e2fe4.CreatePullZoneFromDiscriminatorValue)
+        val, err := n.GetCollectionOfObjectValues(CreateLinkedPullZoneFromDiscriminatorValue)
         if err != nil {
             return err
         }
         if val != nil {
-            res := make([]i9d3c79fc44359c9b4b531e313634f16de3ba545b486fa45d121ca75ff09e2fe4.PullZoneable, len(val))
+            res := make([]LinkedPullZoneable, len(val))
             for i, v := range val {
                 if v != nil {
-                    res[i] = v.(i9d3c79fc44359c9b4b531e313634f16de3ba545b486fa45d121ca75ff09e2fe4.PullZoneable)
+                    res[i] = v.(LinkedPullZoneable)
                 }
             }
             m.SetLinkedPullZones(res)
+        }
+        return nil
+    }
+    res["MonthlyCost"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetFloat64Value()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetMonthlyCost(val)
+        }
+        return nil
+    }
+    res["MonthlyCpuTime"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetInt32Value()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetMonthlyCpuTime(val)
+        }
+        return nil
+    }
+    res["MonthlyRequestCount"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetInt32Value()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetMonthlyRequestCount(val)
         }
         return nil
     }
@@ -189,6 +238,16 @@ func (m *Script) GetFieldDeserializers()(map[string]func(i878a80d2330e89d2689638
         }
         if val != nil {
             m.SetName(val)
+        }
+        return nil
+    }
+    res["RepositoryId"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetInt64Value()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetRepositoryId(val)
         }
         return nil
     }
@@ -219,10 +278,15 @@ func (m *Script) GetFieldDeserializers()(map[string]func(i878a80d2330e89d2689638
 func (m *Script) GetId()(*int64) {
     return m.id
 }
-// GetIntegrationEnabled gets the IntegrationEnabled property value. The IntegrationEnabled property
-// returns a *bool when successful
-func (m *Script) GetIntegrationEnabled()(*bool) {
-    return m.integrationEnabled
+// GetIntegration gets the Integration property value. The Integration property
+// returns a Integrationable when successful
+func (m *Script) GetIntegration()(Integrationable) {
+    return m.integration
+}
+// GetIntegrationId gets the IntegrationId property value. The IntegrationId property
+// returns a *int64 when successful
+func (m *Script) GetIntegrationId()(*int64) {
+    return m.integrationId
 }
 // GetLastModified gets the LastModified property value. The LastModified property
 // returns a *Time when successful
@@ -230,14 +294,34 @@ func (m *Script) GetLastModified()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a163
     return m.lastModified
 }
 // GetLinkedPullZones gets the LinkedPullZones property value. The LinkedPullZones property
-// returns a []PullZoneable when successful
-func (m *Script) GetLinkedPullZones()([]i9d3c79fc44359c9b4b531e313634f16de3ba545b486fa45d121ca75ff09e2fe4.PullZoneable) {
+// returns a []LinkedPullZoneable when successful
+func (m *Script) GetLinkedPullZones()([]LinkedPullZoneable) {
     return m.linkedPullZones
+}
+// GetMonthlyCost gets the MonthlyCost property value. The MonthlyCost property
+// returns a *float64 when successful
+func (m *Script) GetMonthlyCost()(*float64) {
+    return m.monthlyCost
+}
+// GetMonthlyCpuTime gets the MonthlyCpuTime property value. The MonthlyCpuTime property
+// returns a *int32 when successful
+func (m *Script) GetMonthlyCpuTime()(*int32) {
+    return m.monthlyCpuTime
+}
+// GetMonthlyRequestCount gets the MonthlyRequestCount property value. The MonthlyRequestCount property
+// returns a *int32 when successful
+func (m *Script) GetMonthlyRequestCount()(*int32) {
+    return m.monthlyRequestCount
 }
 // GetName gets the Name property value. The Name property
 // returns a *string when successful
 func (m *Script) GetName()(*string) {
     return m.name
+}
+// GetRepositoryId gets the RepositoryId property value. The RepositoryId property
+// returns a *int64 when successful
+func (m *Script) GetRepositoryId()(*int64) {
+    return m.repositoryId
 }
 // GetScriptType gets the ScriptType property value. The ScriptType property
 // returns a *float64 when successful
@@ -251,6 +335,12 @@ func (m *Script) GetSystemHostname()(*string) {
 }
 // Serialize serializes information the current object
 func (m *Script) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.SerializationWriter)(error) {
+    {
+        err := writer.WriteObjectValue("Integration", m.GetIntegration())
+        if err != nil {
+            return err
+        }
+    }
     {
         err := writer.WriteStringValue("Name", m.GetName())
         if err != nil {
@@ -299,21 +389,41 @@ func (m *Script) SetEdgeScriptVariables(value []EdgeScriptVariableable)() {
 func (m *Script) SetId(value *int64)() {
     m.id = value
 }
-// SetIntegrationEnabled sets the IntegrationEnabled property value. The IntegrationEnabled property
-func (m *Script) SetIntegrationEnabled(value *bool)() {
-    m.integrationEnabled = value
+// SetIntegration sets the Integration property value. The Integration property
+func (m *Script) SetIntegration(value Integrationable)() {
+    m.integration = value
+}
+// SetIntegrationId sets the IntegrationId property value. The IntegrationId property
+func (m *Script) SetIntegrationId(value *int64)() {
+    m.integrationId = value
 }
 // SetLastModified sets the LastModified property value. The LastModified property
 func (m *Script) SetLastModified(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)() {
     m.lastModified = value
 }
 // SetLinkedPullZones sets the LinkedPullZones property value. The LinkedPullZones property
-func (m *Script) SetLinkedPullZones(value []i9d3c79fc44359c9b4b531e313634f16de3ba545b486fa45d121ca75ff09e2fe4.PullZoneable)() {
+func (m *Script) SetLinkedPullZones(value []LinkedPullZoneable)() {
     m.linkedPullZones = value
+}
+// SetMonthlyCost sets the MonthlyCost property value. The MonthlyCost property
+func (m *Script) SetMonthlyCost(value *float64)() {
+    m.monthlyCost = value
+}
+// SetMonthlyCpuTime sets the MonthlyCpuTime property value. The MonthlyCpuTime property
+func (m *Script) SetMonthlyCpuTime(value *int32)() {
+    m.monthlyCpuTime = value
+}
+// SetMonthlyRequestCount sets the MonthlyRequestCount property value. The MonthlyRequestCount property
+func (m *Script) SetMonthlyRequestCount(value *int32)() {
+    m.monthlyRequestCount = value
 }
 // SetName sets the Name property value. The Name property
 func (m *Script) SetName(value *string)() {
     m.name = value
+}
+// SetRepositoryId sets the RepositoryId property value. The RepositoryId property
+func (m *Script) SetRepositoryId(value *int64)() {
+    m.repositoryId = value
 }
 // SetScriptType sets the ScriptType property value. The ScriptType property
 func (m *Script) SetScriptType(value *float64)() {
@@ -332,10 +442,15 @@ type Scriptable interface {
     GetDeploymentKey()(*string)
     GetEdgeScriptVariables()([]EdgeScriptVariableable)
     GetId()(*int64)
-    GetIntegrationEnabled()(*bool)
+    GetIntegration()(Integrationable)
+    GetIntegrationId()(*int64)
     GetLastModified()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
-    GetLinkedPullZones()([]i9d3c79fc44359c9b4b531e313634f16de3ba545b486fa45d121ca75ff09e2fe4.PullZoneable)
+    GetLinkedPullZones()([]LinkedPullZoneable)
+    GetMonthlyCost()(*float64)
+    GetMonthlyCpuTime()(*int32)
+    GetMonthlyRequestCount()(*int32)
     GetName()(*string)
+    GetRepositoryId()(*int64)
     GetScriptType()(*float64)
     GetSystemHostname()(*string)
     SetCurrentReleaseId(value *int64)()
@@ -344,10 +459,15 @@ type Scriptable interface {
     SetDeploymentKey(value *string)()
     SetEdgeScriptVariables(value []EdgeScriptVariableable)()
     SetId(value *int64)()
-    SetIntegrationEnabled(value *bool)()
+    SetIntegration(value Integrationable)()
+    SetIntegrationId(value *int64)()
     SetLastModified(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)()
-    SetLinkedPullZones(value []i9d3c79fc44359c9b4b531e313634f16de3ba545b486fa45d121ca75ff09e2fe4.PullZoneable)()
+    SetLinkedPullZones(value []LinkedPullZoneable)()
+    SetMonthlyCost(value *float64)()
+    SetMonthlyCpuTime(value *int32)()
+    SetMonthlyRequestCount(value *int32)()
     SetName(value *string)()
+    SetRepositoryId(value *int64)()
     SetScriptType(value *float64)()
     SetSystemHostname(value *string)()
 }

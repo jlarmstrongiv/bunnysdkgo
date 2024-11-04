@@ -9,6 +9,8 @@ type Action struct {
     actionParameter1 *string
     // The ActionParameter2 property
     actionParameter2 *string
+    // The ActionParameter3 property
+    actionParameter3 *string
     // The ActionType property
     actionType *float64
     // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -35,6 +37,11 @@ func (m *Action) GetActionParameter1()(*string) {
 // returns a *string when successful
 func (m *Action) GetActionParameter2()(*string) {
     return m.actionParameter2
+}
+// GetActionParameter3 gets the ActionParameter3 property value. The ActionParameter3 property
+// returns a *string when successful
+func (m *Action) GetActionParameter3()(*string) {
+    return m.actionParameter3
 }
 // GetActionType gets the ActionType property value. The ActionType property
 // returns a *float64 when successful
@@ -70,6 +77,16 @@ func (m *Action) GetFieldDeserializers()(map[string]func(i878a80d2330e89d2689638
         }
         return nil
     }
+    res["ActionParameter3"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetActionParameter3(val)
+        }
+        return nil
+    }
     res["ActionType"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetFloat64Value()
         if err != nil {
@@ -97,6 +114,12 @@ func (m *Action) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c
         }
     }
     {
+        err := writer.WriteStringValue("ActionParameter3", m.GetActionParameter3())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err := writer.WriteFloat64Value("ActionType", m.GetActionType())
         if err != nil {
             return err
@@ -118,6 +141,10 @@ func (m *Action) SetActionParameter1(value *string)() {
 func (m *Action) SetActionParameter2(value *string)() {
     m.actionParameter2 = value
 }
+// SetActionParameter3 sets the ActionParameter3 property value. The ActionParameter3 property
+func (m *Action) SetActionParameter3(value *string)() {
+    m.actionParameter3 = value
+}
 // SetActionType sets the ActionType property value. The ActionType property
 func (m *Action) SetActionType(value *float64)() {
     m.actionType = value
@@ -131,8 +158,10 @@ type Actionable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetActionParameter1()(*string)
     GetActionParameter2()(*string)
+    GetActionParameter3()(*string)
     GetActionType()(*float64)
     SetActionParameter1(value *string)()
     SetActionParameter2(value *string)()
+    SetActionParameter3(value *string)()
     SetActionType(value *float64)()
 }

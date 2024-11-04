@@ -17,7 +17,7 @@ type CreateBunnyApiClientParameters struct {
 func CreateBunnyApiClient(
   options *CreateBunnyApiClientParameters,
 ) (*bunnyApiClient.BunnyApiClient, error) {
-  authProvider, err := auth.NewApiKeyAuthenticationProvider(options.AccessKey, "AccessKey", auth.HEADER_KEYLOCATION)
+  authProvider, err := auth.NewApiKeyAuthenticationProvider(options.AccessKey, "accesskey", auth.HEADER_KEYLOCATION)
   if err != nil {
     return nil, err
   }
@@ -36,7 +36,7 @@ type CreateEdgeStorageApiClientParameters struct {
 func CreateEdgeStorageApiClient(
   options *CreateEdgeStorageApiClientParameters,
 ) (*edgeStorageApiClient.EdgeStorageApiClient, error) {
-  authProvider, err := auth.NewApiKeyAuthenticationProvider(options.AccessKey, "AccessKey", auth.HEADER_KEYLOCATION)
+  authProvider, err := auth.NewApiKeyAuthenticationProvider(options.AccessKey, "accesskey", auth.HEADER_KEYLOCATION)
   if err != nil {
     return nil, err
   }
@@ -55,7 +55,7 @@ type CreateStreamApiClientParameters struct {
 func CreateStreamApiClient(
   options *CreateStreamApiClientParameters,
 ) (*streamApiClient.StreamApiClient, error) {
-  authProvider, err := auth.NewApiKeyAuthenticationProvider(options.AccessKey, "AccessKey", auth.HEADER_KEYLOCATION)
+  authProvider, err := auth.NewApiKeyAuthenticationProvider(options.AccessKey, "accesskey", auth.HEADER_KEYLOCATION)
   if err != nil {
     return nil, err
   }
@@ -73,7 +73,7 @@ type CreateLoggingApiClientParameters struct {
 func CreateLoggingApiClient(
   options *CreateStreamApiClientParameters,
 ) (*loggingApiClient.LoggingApiClient, error) {
-  authProvider, err := auth.NewApiKeyAuthenticationProvider(options.AccessKey, "AccessKey", auth.HEADER_KEYLOCATION)
+  authProvider, err := auth.NewApiKeyAuthenticationProvider(options.AccessKey, "accesskey", auth.HEADER_KEYLOCATION)
   if err != nil {
     return nil, err
   }

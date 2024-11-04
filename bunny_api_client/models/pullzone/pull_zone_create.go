@@ -172,6 +172,8 @@ type PullZoneCreate struct {
     optimizerEnabled *bool
     // Determines the image manipulation should be enabled
     optimizerEnableManipulationEngine *bool
+    // The OptimizerEnableUpscaling property
+    optimizerEnableUpscaling *bool
     // Determines if the WebP optimization should be enabled
     optimizerEnableWebP *bool
     // Determines if the optimizer class list should be enforced
@@ -192,6 +194,8 @@ type PullZoneCreate struct {
     optimizerStaticHtmlWordPressBypassCookie *string
     // The OptimizerStaticHtmlWordPressPath property
     optimizerStaticHtmlWordPressPath *string
+    // The OptimizerTunnelEnabled property
+    optimizerTunnelEnabled *bool
     // Determines if image watermarking should be enabled
     optimizerWatermarkEnabled *bool
     // Sets the minimum image size to which the watermark will be added
@@ -262,6 +266,12 @@ type PullZoneCreate struct {
     shieldDDosProtectionEnabled *bool
     // The ShieldDDosProtectionType property
     shieldDDosProtectionType *float64
+    // The StickySessionClientHeaders property
+    stickySessionClientHeaders i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.UntypedNodeable
+    // The StickySessionCookieName property
+    stickySessionCookieName *string
+    // The StickySessionType property
+    stickySessionType *int32
     // The ID of the storage zone that the pull zone is linked to
     storageZoneId *int64
     // The Type property
@@ -1464,6 +1474,16 @@ func (m *PullZoneCreate) GetFieldDeserializers()(map[string]func(i878a80d2330e89
         }
         return nil
     }
+    res["OptimizerEnableUpscaling"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetBoolValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetOptimizerEnableUpscaling(val)
+        }
+        return nil
+    }
     res["OptimizerEnableWebP"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetBoolValue()
         if err != nil {
@@ -1561,6 +1581,16 @@ func (m *PullZoneCreate) GetFieldDeserializers()(map[string]func(i878a80d2330e89
         }
         if val != nil {
             m.SetOptimizerStaticHtmlWordPressPath(val)
+        }
+        return nil
+    }
+    res["OptimizerTunnelEnabled"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetBoolValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetOptimizerTunnelEnabled(val)
         }
         return nil
     }
@@ -1926,6 +1956,36 @@ func (m *PullZoneCreate) GetFieldDeserializers()(map[string]func(i878a80d2330e89
         }
         return nil
     }
+    res["StickySessionClientHeaders"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetObjectValue(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.CreateUntypedNodeFromDiscriminatorValue)
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetStickySessionClientHeaders(val.(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.UntypedNodeable))
+        }
+        return nil
+    }
+    res["StickySessionCookieName"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetStickySessionCookieName(val)
+        }
+        return nil
+    }
+    res["StickySessionType"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetInt32Value()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetStickySessionType(val)
+        }
+        return nil
+    }
     res["StorageZoneId"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetInt64Value()
         if err != nil {
@@ -2195,6 +2255,11 @@ func (m *PullZoneCreate) GetOptimizerEnabled()(*bool) {
 func (m *PullZoneCreate) GetOptimizerEnableManipulationEngine()(*bool) {
     return m.optimizerEnableManipulationEngine
 }
+// GetOptimizerEnableUpscaling gets the OptimizerEnableUpscaling property value. The OptimizerEnableUpscaling property
+// returns a *bool when successful
+func (m *PullZoneCreate) GetOptimizerEnableUpscaling()(*bool) {
+    return m.optimizerEnableUpscaling
+}
 // GetOptimizerEnableWebP gets the OptimizerEnableWebP property value. Determines if the WebP optimization should be enabled
 // returns a *bool when successful
 func (m *PullZoneCreate) GetOptimizerEnableWebP()(*bool) {
@@ -2244,6 +2309,11 @@ func (m *PullZoneCreate) GetOptimizerStaticHtmlWordPressBypassCookie()(*string) 
 // returns a *string when successful
 func (m *PullZoneCreate) GetOptimizerStaticHtmlWordPressPath()(*string) {
     return m.optimizerStaticHtmlWordPressPath
+}
+// GetOptimizerTunnelEnabled gets the OptimizerTunnelEnabled property value. The OptimizerTunnelEnabled property
+// returns a *bool when successful
+func (m *PullZoneCreate) GetOptimizerTunnelEnabled()(*bool) {
+    return m.optimizerTunnelEnabled
 }
 // GetOptimizerWatermarkEnabled gets the OptimizerWatermarkEnabled property value. Determines if image watermarking should be enabled
 // returns a *bool when successful
@@ -2419,6 +2489,21 @@ func (m *PullZoneCreate) GetShieldDDosProtectionEnabled()(*bool) {
 // returns a *float64 when successful
 func (m *PullZoneCreate) GetShieldDDosProtectionType()(*float64) {
     return m.shieldDDosProtectionType
+}
+// GetStickySessionClientHeaders gets the StickySessionClientHeaders property value. The StickySessionClientHeaders property
+// returns a UntypedNodeable when successful
+func (m *PullZoneCreate) GetStickySessionClientHeaders()(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.UntypedNodeable) {
+    return m.stickySessionClientHeaders
+}
+// GetStickySessionCookieName gets the StickySessionCookieName property value. The StickySessionCookieName property
+// returns a *string when successful
+func (m *PullZoneCreate) GetStickySessionCookieName()(*string) {
+    return m.stickySessionCookieName
+}
+// GetStickySessionType gets the StickySessionType property value. The StickySessionType property
+// returns a *int32 when successful
+func (m *PullZoneCreate) GetStickySessionType()(*int32) {
+    return m.stickySessionType
 }
 // GetStorageZoneId gets the StorageZoneId property value. The ID of the storage zone that the pull zone is linked to
 // returns a *int64 when successful
@@ -2986,6 +3071,12 @@ func (m *PullZoneCreate) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a
         }
     }
     {
+        err := writer.WriteBoolValue("OptimizerEnableUpscaling", m.GetOptimizerEnableUpscaling())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err := writer.WriteBoolValue("OptimizerEnableWebP", m.GetOptimizerEnableWebP())
         if err != nil {
             return err
@@ -3041,6 +3132,12 @@ func (m *PullZoneCreate) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a
     }
     {
         err := writer.WriteStringValue("OptimizerStaticHtmlWordPressPath", m.GetOptimizerStaticHtmlWordPressPath())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteBoolValue("OptimizerTunnelEnabled", m.GetOptimizerTunnelEnabled())
         if err != nil {
             return err
         }
@@ -3251,6 +3348,24 @@ func (m *PullZoneCreate) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a
     }
     {
         err := writer.WriteFloat64Value("ShieldDDosProtectionType", m.GetShieldDDosProtectionType())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteObjectValue("StickySessionClientHeaders", m.GetStickySessionClientHeaders())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteStringValue("StickySessionCookieName", m.GetStickySessionCookieName())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteInt32Value("StickySessionType", m.GetStickySessionType())
         if err != nil {
             return err
         }
@@ -3674,6 +3789,10 @@ func (m *PullZoneCreate) SetOptimizerEnabled(value *bool)() {
 func (m *PullZoneCreate) SetOptimizerEnableManipulationEngine(value *bool)() {
     m.optimizerEnableManipulationEngine = value
 }
+// SetOptimizerEnableUpscaling sets the OptimizerEnableUpscaling property value. The OptimizerEnableUpscaling property
+func (m *PullZoneCreate) SetOptimizerEnableUpscaling(value *bool)() {
+    m.optimizerEnableUpscaling = value
+}
 // SetOptimizerEnableWebP sets the OptimizerEnableWebP property value. Determines if the WebP optimization should be enabled
 func (m *PullZoneCreate) SetOptimizerEnableWebP(value *bool)() {
     m.optimizerEnableWebP = value
@@ -3713,6 +3832,10 @@ func (m *PullZoneCreate) SetOptimizerStaticHtmlWordPressBypassCookie(value *stri
 // SetOptimizerStaticHtmlWordPressPath sets the OptimizerStaticHtmlWordPressPath property value. The OptimizerStaticHtmlWordPressPath property
 func (m *PullZoneCreate) SetOptimizerStaticHtmlWordPressPath(value *string)() {
     m.optimizerStaticHtmlWordPressPath = value
+}
+// SetOptimizerTunnelEnabled sets the OptimizerTunnelEnabled property value. The OptimizerTunnelEnabled property
+func (m *PullZoneCreate) SetOptimizerTunnelEnabled(value *bool)() {
+    m.optimizerTunnelEnabled = value
 }
 // SetOptimizerWatermarkEnabled sets the OptimizerWatermarkEnabled property value. Determines if image watermarking should be enabled
 func (m *PullZoneCreate) SetOptimizerWatermarkEnabled(value *bool)() {
@@ -3854,6 +3977,18 @@ func (m *PullZoneCreate) SetShieldDDosProtectionEnabled(value *bool)() {
 func (m *PullZoneCreate) SetShieldDDosProtectionType(value *float64)() {
     m.shieldDDosProtectionType = value
 }
+// SetStickySessionClientHeaders sets the StickySessionClientHeaders property value. The StickySessionClientHeaders property
+func (m *PullZoneCreate) SetStickySessionClientHeaders(value i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.UntypedNodeable)() {
+    m.stickySessionClientHeaders = value
+}
+// SetStickySessionCookieName sets the StickySessionCookieName property value. The StickySessionCookieName property
+func (m *PullZoneCreate) SetStickySessionCookieName(value *string)() {
+    m.stickySessionCookieName = value
+}
+// SetStickySessionType sets the StickySessionType property value. The StickySessionType property
+func (m *PullZoneCreate) SetStickySessionType(value *int32)() {
+    m.stickySessionType = value
+}
 // SetStorageZoneId sets the StorageZoneId property value. The ID of the storage zone that the pull zone is linked to
 func (m *PullZoneCreate) SetStorageZoneId(value *int64)() {
     m.storageZoneId = value
@@ -3991,6 +4126,7 @@ type PullZoneCreateable interface {
     GetOptimizerDesktopMaxWidth()(*int32)
     GetOptimizerEnabled()(*bool)
     GetOptimizerEnableManipulationEngine()(*bool)
+    GetOptimizerEnableUpscaling()(*bool)
     GetOptimizerEnableWebP()(*bool)
     GetOptimizerForceClasses()(*bool)
     GetOptimizerImageQuality()(*int32)
@@ -4001,6 +4137,7 @@ type PullZoneCreateable interface {
     GetOptimizerStaticHtmlEnabled()(*bool)
     GetOptimizerStaticHtmlWordPressBypassCookie()(*string)
     GetOptimizerStaticHtmlWordPressPath()(*string)
+    GetOptimizerTunnelEnabled()(*bool)
     GetOptimizerWatermarkEnabled()(*bool)
     GetOptimizerWatermarkMinImageSize()(*int32)
     GetOptimizerWatermarkOffset()(*float64)
@@ -4036,6 +4173,9 @@ type PullZoneCreateable interface {
     GetRoutingFilters()([]PullZoneCreate_RoutingFilters)
     GetShieldDDosProtectionEnabled()(*bool)
     GetShieldDDosProtectionType()(*float64)
+    GetStickySessionClientHeaders()(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.UntypedNodeable)
+    GetStickySessionCookieName()(*string)
+    GetStickySessionType()(*int32)
     GetStorageZoneId()(*int64)
     GetTypeEscaped()(*float64)
     GetUseBackgroundUpdate()(*bool)
@@ -4131,6 +4271,7 @@ type PullZoneCreateable interface {
     SetOptimizerDesktopMaxWidth(value *int32)()
     SetOptimizerEnabled(value *bool)()
     SetOptimizerEnableManipulationEngine(value *bool)()
+    SetOptimizerEnableUpscaling(value *bool)()
     SetOptimizerEnableWebP(value *bool)()
     SetOptimizerForceClasses(value *bool)()
     SetOptimizerImageQuality(value *int32)()
@@ -4141,6 +4282,7 @@ type PullZoneCreateable interface {
     SetOptimizerStaticHtmlEnabled(value *bool)()
     SetOptimizerStaticHtmlWordPressBypassCookie(value *string)()
     SetOptimizerStaticHtmlWordPressPath(value *string)()
+    SetOptimizerTunnelEnabled(value *bool)()
     SetOptimizerWatermarkEnabled(value *bool)()
     SetOptimizerWatermarkMinImageSize(value *int32)()
     SetOptimizerWatermarkOffset(value *float64)()
@@ -4176,6 +4318,9 @@ type PullZoneCreateable interface {
     SetRoutingFilters(value []PullZoneCreate_RoutingFilters)()
     SetShieldDDosProtectionEnabled(value *bool)()
     SetShieldDDosProtectionType(value *float64)()
+    SetStickySessionClientHeaders(value i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.UntypedNodeable)()
+    SetStickySessionCookieName(value *string)()
+    SetStickySessionType(value *int32)()
     SetStorageZoneId(value *int64)()
     SetTypeEscaped(value *float64)()
     SetUseBackgroundUpdate(value *bool)()

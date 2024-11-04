@@ -13,6 +13,7 @@ type ItemVideosItemTranscribeRequestBuilder struct {
 // ItemVideosItemTranscribeRequestBuilderPostQueryParameters [TranscribeVideo API Docs](https://docs.bunny.net/reference/video_transcribevideo)
 type ItemVideosItemTranscribeRequestBuilderPostQueryParameters struct {
     Force *bool `uriparametername:"force"`
+    // Video source language, use ISO 639-1 language code
     Language *string `uriparametername:"language"`
 }
 // NewItemVideosItemTranscribeRequestBuilderInternal instantiates a new ItemVideosItemTranscribeRequestBuilder and sets the default values.

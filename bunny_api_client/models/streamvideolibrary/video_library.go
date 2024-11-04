@@ -50,6 +50,10 @@ type VideoLibrary struct {
     customHTML *string
     // The date when the video library was created
     dateCreated *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
+    // The DrmBasePriceOverride property
+    drmBasePriceOverride *float64
+    // The DrmCostPerLicenseOverride property
+    drmCostPerLicenseOverride *float64
     // The DrmVersion property
     drmVersion *int64
     // Determines if content tagging should be enabled for this library.
@@ -60,12 +64,16 @@ type VideoLibrary struct {
     enableDRM *bool
     // Determines if the MP4 fallback feature is enabled
     enableMP4Fallback *bool
+    // The EnableMultiAudioTrackSupport property
+    enableMultiAudioTrackSupport *bool
     // Determines if the automatic audio transcribing is currently enabled for this zone.
     enableTranscribing *bool
     // Determines if automatic transcribing description generation is currently enabled.
     enableTranscribingDescriptionGeneration *bool
     // Determines if automatic transcribing title generation is currently enabled.
     enableTranscribingTitleGeneration *bool
+    // The EncodingTier property
+    encodingTier *int32
     // The captions font family.
     fontFamily *string
     // The GoogleWidevineDrm property
@@ -74,14 +82,26 @@ type VideoLibrary struct {
     hasWatermark *bool
     // The Id property
     id *int64
+    // The JitEncodingEnabled property
+    jitEncodingEnabled *bool
     // Determines if the original video files should be stored after encoding
     keepOriginalFiles *bool
+    // The MonthlyChargesEnterpriseDrm property
+    monthlyChargesEnterpriseDrm *float64
+    // The MonthlyChargesPremiumEncoding property
+    monthlyChargesPremiumEncoding *float64
+    // The MonthlyChargesTranscribing property
+    monthlyChargesTranscribing *float64
     // The name of the Video Library.
     name *string
+    // The OutputCodecs property
+    outputCodecs *string
     // The key color of the player.
     playerKeyColor *string
     // Determines if the player token authentication is enabled
     playerTokenAuthenticationEnabled *bool
+    // The PremiumEncodingPriceOverride property
+    premiumEncodingPriceOverride *float64
     // The ID of the connected underlying pull zone
     pullZoneId *int64
     // The PullZoneType property
@@ -102,8 +122,12 @@ type VideoLibrary struct {
     trafficUsage *int64
     // The TranscribingCaptionLanguages property
     transcribingCaptionLanguages []string
+    // The TranscribingPriceOverride property
+    transcribingPriceOverride *float64
     // The UI language of the player
     uILanguage *string
+    // The UseSeparateAudioStream property
+    useSeparateAudioStream *bool
     // The URL of the VAST tag endpoint for advertising configuration
     vastTagUrl *string
     // The vi.ai publisher id for advertising configuration
@@ -245,6 +269,16 @@ func (m *VideoLibrary) GetCustomHTML()(*string) {
 func (m *VideoLibrary) GetDateCreated()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time) {
     return m.dateCreated
 }
+// GetDrmBasePriceOverride gets the DrmBasePriceOverride property value. The DrmBasePriceOverride property
+// returns a *float64 when successful
+func (m *VideoLibrary) GetDrmBasePriceOverride()(*float64) {
+    return m.drmBasePriceOverride
+}
+// GetDrmCostPerLicenseOverride gets the DrmCostPerLicenseOverride property value. The DrmCostPerLicenseOverride property
+// returns a *float64 when successful
+func (m *VideoLibrary) GetDrmCostPerLicenseOverride()(*float64) {
+    return m.drmCostPerLicenseOverride
+}
 // GetDrmVersion gets the DrmVersion property value. The DrmVersion property
 // returns a *int64 when successful
 func (m *VideoLibrary) GetDrmVersion()(*int64) {
@@ -270,6 +304,11 @@ func (m *VideoLibrary) GetEnableDRM()(*bool) {
 func (m *VideoLibrary) GetEnableMP4Fallback()(*bool) {
     return m.enableMP4Fallback
 }
+// GetEnableMultiAudioTrackSupport gets the EnableMultiAudioTrackSupport property value. The EnableMultiAudioTrackSupport property
+// returns a *bool when successful
+func (m *VideoLibrary) GetEnableMultiAudioTrackSupport()(*bool) {
+    return m.enableMultiAudioTrackSupport
+}
 // GetEnableTranscribing gets the EnableTranscribing property value. Determines if the automatic audio transcribing is currently enabled for this zone.
 // returns a *bool when successful
 func (m *VideoLibrary) GetEnableTranscribing()(*bool) {
@@ -284,6 +323,11 @@ func (m *VideoLibrary) GetEnableTranscribingDescriptionGeneration()(*bool) {
 // returns a *bool when successful
 func (m *VideoLibrary) GetEnableTranscribingTitleGeneration()(*bool) {
     return m.enableTranscribingTitleGeneration
+}
+// GetEncodingTier gets the EncodingTier property value. The EncodingTier property
+// returns a *int32 when successful
+func (m *VideoLibrary) GetEncodingTier()(*int32) {
+    return m.encodingTier
 }
 // GetFieldDeserializers the deserialization information for the current model
 // returns a map[string]func(i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode)(error) when successful
@@ -511,6 +555,26 @@ func (m *VideoLibrary) GetFieldDeserializers()(map[string]func(i878a80d2330e89d2
         }
         return nil
     }
+    res["DrmBasePriceOverride"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetFloat64Value()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetDrmBasePriceOverride(val)
+        }
+        return nil
+    }
+    res["DrmCostPerLicenseOverride"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetFloat64Value()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetDrmCostPerLicenseOverride(val)
+        }
+        return nil
+    }
     res["DrmVersion"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetInt64Value()
         if err != nil {
@@ -561,6 +625,16 @@ func (m *VideoLibrary) GetFieldDeserializers()(map[string]func(i878a80d2330e89d2
         }
         return nil
     }
+    res["EnableMultiAudioTrackSupport"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetBoolValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetEnableMultiAudioTrackSupport(val)
+        }
+        return nil
+    }
     res["EnableTranscribing"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetBoolValue()
         if err != nil {
@@ -588,6 +662,16 @@ func (m *VideoLibrary) GetFieldDeserializers()(map[string]func(i878a80d2330e89d2
         }
         if val != nil {
             m.SetEnableTranscribingTitleGeneration(val)
+        }
+        return nil
+    }
+    res["EncodingTier"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetInt32Value()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetEncodingTier(val)
         }
         return nil
     }
@@ -631,6 +715,16 @@ func (m *VideoLibrary) GetFieldDeserializers()(map[string]func(i878a80d2330e89d2
         }
         return nil
     }
+    res["JitEncodingEnabled"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetBoolValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetJitEncodingEnabled(val)
+        }
+        return nil
+    }
     res["KeepOriginalFiles"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetBoolValue()
         if err != nil {
@@ -641,6 +735,36 @@ func (m *VideoLibrary) GetFieldDeserializers()(map[string]func(i878a80d2330e89d2
         }
         return nil
     }
+    res["MonthlyChargesEnterpriseDrm"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetFloat64Value()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetMonthlyChargesEnterpriseDrm(val)
+        }
+        return nil
+    }
+    res["MonthlyChargesPremiumEncoding"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetFloat64Value()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetMonthlyChargesPremiumEncoding(val)
+        }
+        return nil
+    }
+    res["MonthlyChargesTranscribing"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetFloat64Value()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetMonthlyChargesTranscribing(val)
+        }
+        return nil
+    }
     res["Name"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetStringValue()
         if err != nil {
@@ -648,6 +772,16 @@ func (m *VideoLibrary) GetFieldDeserializers()(map[string]func(i878a80d2330e89d2
         }
         if val != nil {
             m.SetName(val)
+        }
+        return nil
+    }
+    res["OutputCodecs"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetOutputCodecs(val)
         }
         return nil
     }
@@ -668,6 +802,16 @@ func (m *VideoLibrary) GetFieldDeserializers()(map[string]func(i878a80d2330e89d2
         }
         if val != nil {
             m.SetPlayerTokenAuthenticationEnabled(val)
+        }
+        return nil
+    }
+    res["PremiumEncodingPriceOverride"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetFloat64Value()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetPremiumEncodingPriceOverride(val)
         }
         return nil
     }
@@ -783,6 +927,16 @@ func (m *VideoLibrary) GetFieldDeserializers()(map[string]func(i878a80d2330e89d2
         }
         return nil
     }
+    res["TranscribingPriceOverride"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetFloat64Value()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetTranscribingPriceOverride(val)
+        }
+        return nil
+    }
     res["UILanguage"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetStringValue()
         if err != nil {
@@ -790,6 +944,16 @@ func (m *VideoLibrary) GetFieldDeserializers()(map[string]func(i878a80d2330e89d2
         }
         if val != nil {
             m.SetUILanguage(val)
+        }
+        return nil
+    }
+    res["UseSeparateAudioStream"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetBoolValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetUseSeparateAudioStream(val)
         }
         return nil
     }
@@ -905,15 +1069,40 @@ func (m *VideoLibrary) GetHasWatermark()(*bool) {
 func (m *VideoLibrary) GetId()(*int64) {
     return m.id
 }
+// GetJitEncodingEnabled gets the JitEncodingEnabled property value. The JitEncodingEnabled property
+// returns a *bool when successful
+func (m *VideoLibrary) GetJitEncodingEnabled()(*bool) {
+    return m.jitEncodingEnabled
+}
 // GetKeepOriginalFiles gets the KeepOriginalFiles property value. Determines if the original video files should be stored after encoding
 // returns a *bool when successful
 func (m *VideoLibrary) GetKeepOriginalFiles()(*bool) {
     return m.keepOriginalFiles
 }
+// GetMonthlyChargesEnterpriseDrm gets the MonthlyChargesEnterpriseDrm property value. The MonthlyChargesEnterpriseDrm property
+// returns a *float64 when successful
+func (m *VideoLibrary) GetMonthlyChargesEnterpriseDrm()(*float64) {
+    return m.monthlyChargesEnterpriseDrm
+}
+// GetMonthlyChargesPremiumEncoding gets the MonthlyChargesPremiumEncoding property value. The MonthlyChargesPremiumEncoding property
+// returns a *float64 when successful
+func (m *VideoLibrary) GetMonthlyChargesPremiumEncoding()(*float64) {
+    return m.monthlyChargesPremiumEncoding
+}
+// GetMonthlyChargesTranscribing gets the MonthlyChargesTranscribing property value. The MonthlyChargesTranscribing property
+// returns a *float64 when successful
+func (m *VideoLibrary) GetMonthlyChargesTranscribing()(*float64) {
+    return m.monthlyChargesTranscribing
+}
 // GetName gets the Name property value. The name of the Video Library.
 // returns a *string when successful
 func (m *VideoLibrary) GetName()(*string) {
     return m.name
+}
+// GetOutputCodecs gets the OutputCodecs property value. The OutputCodecs property
+// returns a *string when successful
+func (m *VideoLibrary) GetOutputCodecs()(*string) {
+    return m.outputCodecs
 }
 // GetPlayerKeyColor gets the PlayerKeyColor property value. The key color of the player.
 // returns a *string when successful
@@ -924,6 +1113,11 @@ func (m *VideoLibrary) GetPlayerKeyColor()(*string) {
 // returns a *bool when successful
 func (m *VideoLibrary) GetPlayerTokenAuthenticationEnabled()(*bool) {
     return m.playerTokenAuthenticationEnabled
+}
+// GetPremiumEncodingPriceOverride gets the PremiumEncodingPriceOverride property value. The PremiumEncodingPriceOverride property
+// returns a *float64 when successful
+func (m *VideoLibrary) GetPremiumEncodingPriceOverride()(*float64) {
+    return m.premiumEncodingPriceOverride
 }
 // GetPullZoneId gets the PullZoneId property value. The ID of the connected underlying pull zone
 // returns a *int64 when successful
@@ -975,10 +1169,20 @@ func (m *VideoLibrary) GetTrafficUsage()(*int64) {
 func (m *VideoLibrary) GetTranscribingCaptionLanguages()([]string) {
     return m.transcribingCaptionLanguages
 }
+// GetTranscribingPriceOverride gets the TranscribingPriceOverride property value. The TranscribingPriceOverride property
+// returns a *float64 when successful
+func (m *VideoLibrary) GetTranscribingPriceOverride()(*float64) {
+    return m.transcribingPriceOverride
+}
 // GetUILanguage gets the UILanguage property value. The UI language of the player
 // returns a *string when successful
 func (m *VideoLibrary) GetUILanguage()(*string) {
     return m.uILanguage
+}
+// GetUseSeparateAudioStream gets the UseSeparateAudioStream property value. The UseSeparateAudioStream property
+// returns a *bool when successful
+func (m *VideoLibrary) GetUseSeparateAudioStream()(*bool) {
+    return m.useSeparateAudioStream
 }
 // GetVastTagUrl gets the VastTagUrl property value. The URL of the VAST tag endpoint for advertising configuration
 // returns a *string when successful
@@ -1118,6 +1322,18 @@ func (m *VideoLibrary) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e
         }
     }
     {
+        err := writer.WriteFloat64Value("DrmBasePriceOverride", m.GetDrmBasePriceOverride())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteFloat64Value("DrmCostPerLicenseOverride", m.GetDrmCostPerLicenseOverride())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err := writer.WriteBoolValue("EnableContentTagging", m.GetEnableContentTagging())
         if err != nil {
             return err
@@ -1142,6 +1358,12 @@ func (m *VideoLibrary) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e
         }
     }
     {
+        err := writer.WriteBoolValue("EnableMultiAudioTrackSupport", m.GetEnableMultiAudioTrackSupport())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err := writer.WriteBoolValue("EnableTranscribing", m.GetEnableTranscribing())
         if err != nil {
             return err
@@ -1160,7 +1382,19 @@ func (m *VideoLibrary) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e
         }
     }
     {
+        err := writer.WriteInt32Value("EncodingTier", m.GetEncodingTier())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err := writer.WriteStringValue("FontFamily", m.GetFontFamily())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteBoolValue("JitEncodingEnabled", m.GetJitEncodingEnabled())
         if err != nil {
             return err
         }
@@ -1172,7 +1406,31 @@ func (m *VideoLibrary) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e
         }
     }
     {
+        err := writer.WriteFloat64Value("MonthlyChargesEnterpriseDrm", m.GetMonthlyChargesEnterpriseDrm())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteFloat64Value("MonthlyChargesPremiumEncoding", m.GetMonthlyChargesPremiumEncoding())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteFloat64Value("MonthlyChargesTranscribing", m.GetMonthlyChargesTranscribing())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err := writer.WriteStringValue("Name", m.GetName())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteStringValue("OutputCodecs", m.GetOutputCodecs())
         if err != nil {
             return err
         }
@@ -1190,6 +1448,18 @@ func (m *VideoLibrary) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e
         }
     }
     {
+        err := writer.WriteFloat64Value("PremiumEncodingPriceOverride", m.GetPremiumEncodingPriceOverride())
+        if err != nil {
+            return err
+        }
+    }
+    if m.GetReplicationRegions() != nil {
+        err := writer.WriteCollectionOfStringValues("ReplicationRegions", SerializeReplicationRegions(m.GetReplicationRegions()))
+        if err != nil {
+            return err
+        }
+    }
+    {
         err := writer.WriteBoolValue("ShowHeatmap", m.GetShowHeatmap())
         if err != nil {
             return err
@@ -1202,7 +1472,19 @@ func (m *VideoLibrary) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e
         }
     }
     {
+        err := writer.WriteFloat64Value("TranscribingPriceOverride", m.GetTranscribingPriceOverride())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err := writer.WriteStringValue("UILanguage", m.GetUILanguage())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteBoolValue("UseSeparateAudioStream", m.GetUseSeparateAudioStream())
         if err != nil {
             return err
         }
@@ -1345,6 +1627,14 @@ func (m *VideoLibrary) SetCustomHTML(value *string)() {
 func (m *VideoLibrary) SetDateCreated(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)() {
     m.dateCreated = value
 }
+// SetDrmBasePriceOverride sets the DrmBasePriceOverride property value. The DrmBasePriceOverride property
+func (m *VideoLibrary) SetDrmBasePriceOverride(value *float64)() {
+    m.drmBasePriceOverride = value
+}
+// SetDrmCostPerLicenseOverride sets the DrmCostPerLicenseOverride property value. The DrmCostPerLicenseOverride property
+func (m *VideoLibrary) SetDrmCostPerLicenseOverride(value *float64)() {
+    m.drmCostPerLicenseOverride = value
+}
 // SetDrmVersion sets the DrmVersion property value. The DrmVersion property
 func (m *VideoLibrary) SetDrmVersion(value *int64)() {
     m.drmVersion = value
@@ -1365,6 +1655,10 @@ func (m *VideoLibrary) SetEnableDRM(value *bool)() {
 func (m *VideoLibrary) SetEnableMP4Fallback(value *bool)() {
     m.enableMP4Fallback = value
 }
+// SetEnableMultiAudioTrackSupport sets the EnableMultiAudioTrackSupport property value. The EnableMultiAudioTrackSupport property
+func (m *VideoLibrary) SetEnableMultiAudioTrackSupport(value *bool)() {
+    m.enableMultiAudioTrackSupport = value
+}
 // SetEnableTranscribing sets the EnableTranscribing property value. Determines if the automatic audio transcribing is currently enabled for this zone.
 func (m *VideoLibrary) SetEnableTranscribing(value *bool)() {
     m.enableTranscribing = value
@@ -1376,6 +1670,10 @@ func (m *VideoLibrary) SetEnableTranscribingDescriptionGeneration(value *bool)()
 // SetEnableTranscribingTitleGeneration sets the EnableTranscribingTitleGeneration property value. Determines if automatic transcribing title generation is currently enabled.
 func (m *VideoLibrary) SetEnableTranscribingTitleGeneration(value *bool)() {
     m.enableTranscribingTitleGeneration = value
+}
+// SetEncodingTier sets the EncodingTier property value. The EncodingTier property
+func (m *VideoLibrary) SetEncodingTier(value *int32)() {
+    m.encodingTier = value
 }
 // SetFontFamily sets the FontFamily property value. The captions font family.
 func (m *VideoLibrary) SetFontFamily(value *string)() {
@@ -1393,13 +1691,33 @@ func (m *VideoLibrary) SetHasWatermark(value *bool)() {
 func (m *VideoLibrary) SetId(value *int64)() {
     m.id = value
 }
+// SetJitEncodingEnabled sets the JitEncodingEnabled property value. The JitEncodingEnabled property
+func (m *VideoLibrary) SetJitEncodingEnabled(value *bool)() {
+    m.jitEncodingEnabled = value
+}
 // SetKeepOriginalFiles sets the KeepOriginalFiles property value. Determines if the original video files should be stored after encoding
 func (m *VideoLibrary) SetKeepOriginalFiles(value *bool)() {
     m.keepOriginalFiles = value
 }
+// SetMonthlyChargesEnterpriseDrm sets the MonthlyChargesEnterpriseDrm property value. The MonthlyChargesEnterpriseDrm property
+func (m *VideoLibrary) SetMonthlyChargesEnterpriseDrm(value *float64)() {
+    m.monthlyChargesEnterpriseDrm = value
+}
+// SetMonthlyChargesPremiumEncoding sets the MonthlyChargesPremiumEncoding property value. The MonthlyChargesPremiumEncoding property
+func (m *VideoLibrary) SetMonthlyChargesPremiumEncoding(value *float64)() {
+    m.monthlyChargesPremiumEncoding = value
+}
+// SetMonthlyChargesTranscribing sets the MonthlyChargesTranscribing property value. The MonthlyChargesTranscribing property
+func (m *VideoLibrary) SetMonthlyChargesTranscribing(value *float64)() {
+    m.monthlyChargesTranscribing = value
+}
 // SetName sets the Name property value. The name of the Video Library.
 func (m *VideoLibrary) SetName(value *string)() {
     m.name = value
+}
+// SetOutputCodecs sets the OutputCodecs property value. The OutputCodecs property
+func (m *VideoLibrary) SetOutputCodecs(value *string)() {
+    m.outputCodecs = value
 }
 // SetPlayerKeyColor sets the PlayerKeyColor property value. The key color of the player.
 func (m *VideoLibrary) SetPlayerKeyColor(value *string)() {
@@ -1408,6 +1726,10 @@ func (m *VideoLibrary) SetPlayerKeyColor(value *string)() {
 // SetPlayerTokenAuthenticationEnabled sets the PlayerTokenAuthenticationEnabled property value. Determines if the player token authentication is enabled
 func (m *VideoLibrary) SetPlayerTokenAuthenticationEnabled(value *bool)() {
     m.playerTokenAuthenticationEnabled = value
+}
+// SetPremiumEncodingPriceOverride sets the PremiumEncodingPriceOverride property value. The PremiumEncodingPriceOverride property
+func (m *VideoLibrary) SetPremiumEncodingPriceOverride(value *float64)() {
+    m.premiumEncodingPriceOverride = value
 }
 // SetPullZoneId sets the PullZoneId property value. The ID of the connected underlying pull zone
 func (m *VideoLibrary) SetPullZoneId(value *int64)() {
@@ -1449,9 +1771,17 @@ func (m *VideoLibrary) SetTrafficUsage(value *int64)() {
 func (m *VideoLibrary) SetTranscribingCaptionLanguages(value []string)() {
     m.transcribingCaptionLanguages = value
 }
+// SetTranscribingPriceOverride sets the TranscribingPriceOverride property value. The TranscribingPriceOverride property
+func (m *VideoLibrary) SetTranscribingPriceOverride(value *float64)() {
+    m.transcribingPriceOverride = value
+}
 // SetUILanguage sets the UILanguage property value. The UI language of the player
 func (m *VideoLibrary) SetUILanguage(value *string)() {
     m.uILanguage = value
+}
+// SetUseSeparateAudioStream sets the UseSeparateAudioStream property value. The UseSeparateAudioStream property
+func (m *VideoLibrary) SetUseSeparateAudioStream(value *bool)() {
+    m.useSeparateAudioStream = value
 }
 // SetVastTagUrl sets the VastTagUrl property value. The URL of the VAST tag endpoint for advertising configuration
 func (m *VideoLibrary) SetVastTagUrl(value *string)() {
@@ -1513,22 +1843,32 @@ type VideoLibraryable interface {
     GetControls()(*string)
     GetCustomHTML()(*string)
     GetDateCreated()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
+    GetDrmBasePriceOverride()(*float64)
+    GetDrmCostPerLicenseOverride()(*float64)
     GetDrmVersion()(*int64)
     GetEnableContentTagging()(*bool)
     GetEnabledResolutions()(*string)
     GetEnableDRM()(*bool)
     GetEnableMP4Fallback()(*bool)
+    GetEnableMultiAudioTrackSupport()(*bool)
     GetEnableTranscribing()(*bool)
     GetEnableTranscribingDescriptionGeneration()(*bool)
     GetEnableTranscribingTitleGeneration()(*bool)
+    GetEncodingTier()(*int32)
     GetFontFamily()(*string)
     GetGoogleWidevineDrm()(VideoLibrary_GoogleWidevineDrmable)
     GetHasWatermark()(*bool)
     GetId()(*int64)
+    GetJitEncodingEnabled()(*bool)
     GetKeepOriginalFiles()(*bool)
+    GetMonthlyChargesEnterpriseDrm()(*float64)
+    GetMonthlyChargesPremiumEncoding()(*float64)
+    GetMonthlyChargesTranscribing()(*float64)
     GetName()(*string)
+    GetOutputCodecs()(*string)
     GetPlayerKeyColor()(*string)
     GetPlayerTokenAuthenticationEnabled()(*bool)
+    GetPremiumEncodingPriceOverride()(*float64)
     GetPullZoneId()(*int64)
     GetPullZoneType()(*float64)
     GetReadOnlyApiKey()(*string)
@@ -1539,7 +1879,9 @@ type VideoLibraryable interface {
     GetStorageZoneId()(*int64)
     GetTrafficUsage()(*int64)
     GetTranscribingCaptionLanguages()([]string)
+    GetTranscribingPriceOverride()(*float64)
     GetUILanguage()(*string)
+    GetUseSeparateAudioStream()(*bool)
     GetVastTagUrl()(*string)
     GetViAiPublisherId()(*string)
     GetVideoCount()(*int64)
@@ -1570,22 +1912,32 @@ type VideoLibraryable interface {
     SetControls(value *string)()
     SetCustomHTML(value *string)()
     SetDateCreated(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)()
+    SetDrmBasePriceOverride(value *float64)()
+    SetDrmCostPerLicenseOverride(value *float64)()
     SetDrmVersion(value *int64)()
     SetEnableContentTagging(value *bool)()
     SetEnabledResolutions(value *string)()
     SetEnableDRM(value *bool)()
     SetEnableMP4Fallback(value *bool)()
+    SetEnableMultiAudioTrackSupport(value *bool)()
     SetEnableTranscribing(value *bool)()
     SetEnableTranscribingDescriptionGeneration(value *bool)()
     SetEnableTranscribingTitleGeneration(value *bool)()
+    SetEncodingTier(value *int32)()
     SetFontFamily(value *string)()
     SetGoogleWidevineDrm(value VideoLibrary_GoogleWidevineDrmable)()
     SetHasWatermark(value *bool)()
     SetId(value *int64)()
+    SetJitEncodingEnabled(value *bool)()
     SetKeepOriginalFiles(value *bool)()
+    SetMonthlyChargesEnterpriseDrm(value *float64)()
+    SetMonthlyChargesPremiumEncoding(value *float64)()
+    SetMonthlyChargesTranscribing(value *float64)()
     SetName(value *string)()
+    SetOutputCodecs(value *string)()
     SetPlayerKeyColor(value *string)()
     SetPlayerTokenAuthenticationEnabled(value *bool)()
+    SetPremiumEncodingPriceOverride(value *float64)()
     SetPullZoneId(value *int64)()
     SetPullZoneType(value *float64)()
     SetReadOnlyApiKey(value *string)()
@@ -1596,7 +1948,9 @@ type VideoLibraryable interface {
     SetStorageZoneId(value *int64)()
     SetTrafficUsage(value *int64)()
     SetTranscribingCaptionLanguages(value []string)()
+    SetTranscribingPriceOverride(value *float64)()
     SetUILanguage(value *string)()
+    SetUseSeparateAudioStream(value *bool)()
     SetVastTagUrl(value *string)()
     SetViAiPublisherId(value *string)()
     SetVideoCount(value *int64)()

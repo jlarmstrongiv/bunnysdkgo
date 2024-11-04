@@ -9,6 +9,8 @@ type EdgeRule struct {
     actionParameter1 *string
     // The Action parameter 2. The value depends on other parameters of the edge rule.
     actionParameter2 *string
+    // The Action parameter 3. The value depends on other parameters of the edge rule.
+    actionParameter3 *string
     // The ActionType property
     actionType *float64
     // Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -21,6 +23,8 @@ type EdgeRule struct {
     extraActions []Actionable
     // The unique GUID of the edge rule
     guid *string
+    // The OrderIndex property
+    orderIndex *int32
     // The TriggerMatchingType property
     triggerMatchingType *float64
     // The Triggers property
@@ -47,6 +51,11 @@ func (m *EdgeRule) GetActionParameter1()(*string) {
 // returns a *string when successful
 func (m *EdgeRule) GetActionParameter2()(*string) {
     return m.actionParameter2
+}
+// GetActionParameter3 gets the ActionParameter3 property value. The Action parameter 3. The value depends on other parameters of the edge rule.
+// returns a *string when successful
+func (m *EdgeRule) GetActionParameter3()(*string) {
+    return m.actionParameter3
 }
 // GetActionType gets the ActionType property value. The ActionType property
 // returns a *float64 when successful
@@ -94,6 +103,16 @@ func (m *EdgeRule) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896
         }
         if val != nil {
             m.SetActionParameter2(val)
+        }
+        return nil
+    }
+    res["ActionParameter3"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetStringValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetActionParameter3(val)
         }
         return nil
     }
@@ -153,6 +172,16 @@ func (m *EdgeRule) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896
         }
         return nil
     }
+    res["OrderIndex"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetInt32Value()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetOrderIndex(val)
+        }
+        return nil
+    }
     res["TriggerMatchingType"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetFloat64Value()
         if err != nil {
@@ -186,6 +215,11 @@ func (m *EdgeRule) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896
 func (m *EdgeRule) GetGuid()(*string) {
     return m.guid
 }
+// GetOrderIndex gets the OrderIndex property value. The OrderIndex property
+// returns a *int32 when successful
+func (m *EdgeRule) GetOrderIndex()(*int32) {
+    return m.orderIndex
+}
 // GetTriggerMatchingType gets the TriggerMatchingType property value. The TriggerMatchingType property
 // returns a *float64 when successful
 func (m *EdgeRule) GetTriggerMatchingType()(*float64) {
@@ -206,6 +240,12 @@ func (m *EdgeRule) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c01
     }
     {
         err := writer.WriteStringValue("ActionParameter2", m.GetActionParameter2())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteStringValue("ActionParameter3", m.GetActionParameter3())
         if err != nil {
             return err
         }
@@ -241,7 +281,7 @@ func (m *EdgeRule) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c01
         }
     }
     {
-        err := writer.WriteStringValue("Guid", m.GetGuid())
+        err := writer.WriteInt32Value("OrderIndex", m.GetOrderIndex())
         if err != nil {
             return err
         }
@@ -280,6 +320,10 @@ func (m *EdgeRule) SetActionParameter1(value *string)() {
 func (m *EdgeRule) SetActionParameter2(value *string)() {
     m.actionParameter2 = value
 }
+// SetActionParameter3 sets the ActionParameter3 property value. The Action parameter 3. The value depends on other parameters of the edge rule.
+func (m *EdgeRule) SetActionParameter3(value *string)() {
+    m.actionParameter3 = value
+}
 // SetActionType sets the ActionType property value. The ActionType property
 func (m *EdgeRule) SetActionType(value *float64)() {
     m.actionType = value
@@ -304,6 +348,10 @@ func (m *EdgeRule) SetExtraActions(value []Actionable)() {
 func (m *EdgeRule) SetGuid(value *string)() {
     m.guid = value
 }
+// SetOrderIndex sets the OrderIndex property value. The OrderIndex property
+func (m *EdgeRule) SetOrderIndex(value *int32)() {
+    m.orderIndex = value
+}
 // SetTriggerMatchingType sets the TriggerMatchingType property value. The TriggerMatchingType property
 func (m *EdgeRule) SetTriggerMatchingType(value *float64)() {
     m.triggerMatchingType = value
@@ -317,20 +365,24 @@ type EdgeRuleable interface {
     i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.Parsable
     GetActionParameter1()(*string)
     GetActionParameter2()(*string)
+    GetActionParameter3()(*string)
     GetActionType()(*float64)
     GetDescription()(*string)
     GetEnabled()(*bool)
     GetExtraActions()([]Actionable)
     GetGuid()(*string)
+    GetOrderIndex()(*int32)
     GetTriggerMatchingType()(*float64)
     GetTriggers()([]Triggerable)
     SetActionParameter1(value *string)()
     SetActionParameter2(value *string)()
+    SetActionParameter3(value *string)()
     SetActionType(value *float64)()
     SetDescription(value *string)()
     SetEnabled(value *bool)()
     SetExtraActions(value []Actionable)()
     SetGuid(value *string)()
+    SetOrderIndex(value *int32)()
     SetTriggerMatchingType(value *float64)()
     SetTriggers(value []Triggerable)()
 }

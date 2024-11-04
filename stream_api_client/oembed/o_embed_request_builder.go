@@ -20,7 +20,7 @@ type OEmbedRequestBuilderGetQueryParameters struct {
 // NewOEmbedRequestBuilderInternal instantiates a new OEmbedRequestBuilder and sets the default values.
 func NewOEmbedRequestBuilderInternal(pathParameters map[string]string, requestAdapter i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.RequestAdapter)(*OEmbedRequestBuilder) {
     m := &OEmbedRequestBuilder{
-        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/OEmbed?expires={expires}{&maxHeight,maxWidth,token,url}", pathParameters),
+        BaseRequestBuilder: *i2ae4187f7daee263371cb1c977df639813ab50ffa529013b7437480d1ec0158f.NewBaseRequestBuilder(requestAdapter, "{+baseurl}/OEmbed?expires={expires}&url={url}{&maxHeight,maxWidth,token}", pathParameters),
     }
     return m
 }

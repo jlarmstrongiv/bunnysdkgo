@@ -34,6 +34,6 @@ func NewLoggingApiClient(requestAdapter i2ae4187f7daee263371cb1c977df639813ab50f
 }
 // WithMmWithDdWithYy builds and executes requests for operations under \{mm}-{dd}-{yy}
 // returns a *WithMmWithDdWithYyRequestBuilder when successful
-func (m *LoggingApiClient) WithMmWithDdWithYy(dd *int32, mm *int32, yy *int32)(*i33651d4319ae9f40d4017c4cc4a3813ea018c5287811606146bff58e3b980df6.WithMmWithDdWithYyRequestBuilder) {
+func (m *LoggingApiClient) WithMmWithDdWithYy(dd *string, mm *string, yy *string)(*i33651d4319ae9f40d4017c4cc4a3813ea018c5287811606146bff58e3b980df6.WithMmWithDdWithYyRequestBuilder) {
     return i33651d4319ae9f40d4017c4cc4a3813ea018c5287811606146bff58e3b980df6.NewWithMmWithDdWithYyRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter, dd, mm, yy)
 }

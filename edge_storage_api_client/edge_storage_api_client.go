@@ -44,3 +44,8 @@ func NewEdgeStorageApiClient(requestAdapter i2ae4187f7daee263371cb1c977df639813a
     m.BaseRequestBuilder.PathParameters["baseurl"] = m.BaseRequestBuilder.RequestAdapter.GetBaseUrl()
     return m
 }
+// WithStorageZoneNameSlash builds and executes requests for operations under \{storageZoneName}\
+// returns a *WithStorageZoneNameSlashRequestBuilder when successful
+func (m *EdgeStorageApiClient) WithStorageZoneNameSlash(storageZoneName *string)(*i40baa8e6e81618102ede1537c33d2c0dd3cf376676adcb9037b2704ef2b44e67.WithStorageZoneNameSlashRequestBuilder) {
+    return i40baa8e6e81618102ede1537c33d2c0dd3cf376676adcb9037b2704ef2b44e67.NewWithStorageZoneNameSlashRequestBuilderInternal(m.BaseRequestBuilder.PathParameters, m.BaseRequestBuilder.RequestAdapter, storageZoneName)
+}

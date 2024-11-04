@@ -18,6 +18,8 @@ type User struct {
     billingFreeUntilDate *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time
     // The BillingType property
     billingType *float64
+    // The CardVerified property
+    cardVerified *bool
     // The city of the user
     city *string
     // The country name that the user is from
@@ -66,6 +68,8 @@ type User struct {
     suspended *bool
     // The total bandwidth used by the account.
     totalBandwidthUsed *int64
+    // The TrialBalance property
+    trialBalance *float64
     // The total free trial bandwidth limit for this account
     trialBandwidthLimit *int64
     // Determines if the account has 2FA enabled
@@ -118,6 +122,11 @@ func (m *User) GetBillingFreeUntilDate()(*i336074805fc853987abe6f7fe3ad97a6a6f30
 // returns a *float64 when successful
 func (m *User) GetBillingType()(*float64) {
     return m.billingType
+}
+// GetCardVerified gets the CardVerified property value. The CardVerified property
+// returns a *bool when successful
+func (m *User) GetCardVerified()(*bool) {
+    return m.cardVerified
 }
 // GetCity gets the City property value. The city of the user
 // returns a *string when successful
@@ -225,6 +234,16 @@ func (m *User) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a
         }
         if val != nil {
             m.SetBillingType(val)
+        }
+        return nil
+    }
+    res["CardVerified"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetBoolValue()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetCardVerified(val)
         }
         return nil
     }
@@ -486,6 +505,16 @@ func (m *User) GetFieldDeserializers()(map[string]func(i878a80d2330e89d26896388a
         }
         return nil
     }
+    res["TrialBalance"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
+        val, err := n.GetFloat64Value()
+        if err != nil {
+            return err
+        }
+        if val != nil {
+            m.SetTrialBalance(val)
+        }
+        return nil
+    }
     res["TrialBandwidthLimit"] = func (n i878a80d2330e89d26896388a3f487eef27b0a0e6c010c493bf80be1452208f91.ParseNode) error {
         val, err := n.GetInt64Value()
         if err != nil {
@@ -603,6 +632,11 @@ func (m *User) GetSuspended()(*bool) {
 func (m *User) GetTotalBandwidthUsed()(*int64) {
     return m.totalBandwidthUsed
 }
+// GetTrialBalance gets the TrialBalance property value. The TrialBalance property
+// returns a *float64 when successful
+func (m *User) GetTrialBalance()(*float64) {
+    return m.trialBalance
+}
 // GetTrialBandwidthLimit gets the TrialBandwidthLimit property value. The total free trial bandwidth limit for this account
 // returns a *int64 when successful
 func (m *User) GetTrialBandwidthLimit()(*int64) {
@@ -656,6 +690,12 @@ func (m *User) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c49
     }
     {
         err := writer.WriteFloat64Value("BillingType", m.GetBillingType())
+        if err != nil {
+            return err
+        }
+    }
+    {
+        err := writer.WriteBoolValue("CardVerified", m.GetCardVerified())
         if err != nil {
             return err
         }
@@ -805,6 +845,12 @@ func (m *User) Serialize(writer i878a80d2330e89d26896388a3f487eef27b0a0e6c010c49
         }
     }
     {
+        err := writer.WriteFloat64Value("TrialBalance", m.GetTrialBalance())
+        if err != nil {
+            return err
+        }
+    }
+    {
         err := writer.WriteInt64Value("TrialBandwidthLimit", m.GetTrialBandwidthLimit())
         if err != nil {
             return err
@@ -865,6 +911,10 @@ func (m *User) SetBillingFreeUntilDate(value *i336074805fc853987abe6f7fe3ad97a6a
 // SetBillingType sets the BillingType property value. The BillingType property
 func (m *User) SetBillingType(value *float64)() {
     m.billingType = value
+}
+// SetCardVerified sets the CardVerified property value. The CardVerified property
+func (m *User) SetCardVerified(value *bool)() {
+    m.cardVerified = value
 }
 // SetCity sets the City property value. The city of the user
 func (m *User) SetCity(value *string)() {
@@ -962,6 +1012,10 @@ func (m *User) SetSuspended(value *bool)() {
 func (m *User) SetTotalBandwidthUsed(value *int64)() {
     m.totalBandwidthUsed = value
 }
+// SetTrialBalance sets the TrialBalance property value. The TrialBalance property
+func (m *User) SetTrialBalance(value *float64)() {
+    m.trialBalance = value
+}
 // SetTrialBandwidthLimit sets the TrialBandwidthLimit property value. The total free trial bandwidth limit for this account
 func (m *User) SetTrialBandwidthLimit(value *int64)() {
     m.trialBandwidthLimit = value
@@ -990,6 +1044,7 @@ type Userable interface {
     GetBillingEmail()(*string)
     GetBillingFreeUntilDate()(*i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)
     GetBillingType()(*float64)
+    GetCardVerified()(*bool)
     GetCity()(*string)
     GetCompanyName()(*string)
     GetCountry()(*string)
@@ -1014,6 +1069,7 @@ type Userable interface {
     GetStreetAddress()(*string)
     GetSuspended()(*bool)
     GetTotalBandwidthUsed()(*int64)
+    GetTrialBalance()(*float64)
     GetTrialBandwidthLimit()(*int64)
     GetTwoFactorAuthenticationEnabled()(*bool)
     GetUnreadSupportTicketCount()(*int32)
@@ -1024,6 +1080,7 @@ type Userable interface {
     SetBillingEmail(value *string)()
     SetBillingFreeUntilDate(value *i336074805fc853987abe6f7fe3ad97a6a6f3077a16391fec744f671a015fbd7e.Time)()
     SetBillingType(value *float64)()
+    SetCardVerified(value *bool)()
     SetCity(value *string)()
     SetCompanyName(value *string)()
     SetCountry(value *string)()
@@ -1048,6 +1105,7 @@ type Userable interface {
     SetStreetAddress(value *string)()
     SetSuspended(value *bool)()
     SetTotalBandwidthUsed(value *int64)()
+    SetTrialBalance(value *float64)()
     SetTrialBandwidthLimit(value *int64)()
     SetTwoFactorAuthenticationEnabled(value *bool)()
     SetUnreadSupportTicketCount(value *int32)()
